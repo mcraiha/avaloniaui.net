@@ -16,9 +16,9 @@ frameworks with a `;`.
 Some examples:
 
 ```xml
-<TargetFramework>netcoreapp2.0</TargetFramework>
+<TargetFramework>netcoreapp2.1</TargetFramework>
 <TargetFramework>net461</TargetFramework>
-<TargetFrameworks>net461;netcoreapp2.0</TargetFrameworks>
+<TargetFrameworks>net461;netcoreapp2.1</TargetFrameworks>
 ```
 
 For more information on target frameworks, see [the .NET documentation](https://docs.microsoft.com/en-us/dotnet/standard/frameworks).
