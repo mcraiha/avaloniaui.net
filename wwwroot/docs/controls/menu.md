@@ -30,7 +30,7 @@ represent the menu items that will be dropped down from the top-level and subseq
 The text of the `MenuItem` is displayed by the `Header` property; the inner content of the
 `MenuItem` is where the sub-items are placed.
 
-Separators are added by including a `Separator` control.
+Separators are added by including a `Separator` control or a `MenuItem` with a header of `"-"`.
 
 ## Menu Commands
 
