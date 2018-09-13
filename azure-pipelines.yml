@@ -20,9 +20,10 @@ steps:
 # Copy Files
 - task: CopyFiles@2
   inputs:
-    sourceFolder:$(Build.SourcesDirectory)\output
-    contents: **\*
-    targetFolder: $(Build.ArtifactStagingDirectory)
+    displayName: 'Copy output to Artifacts'
+    sourceFolder: '$(Build.SourcesDirectory)\output'
+    contents: '**\*'
+    targetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: Wyam output'
