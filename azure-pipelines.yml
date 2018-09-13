@@ -1,11 +1,31 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-pool:
-  vmImage: 'VS2017-Win2016'
+queue:
+  name: Hosted VS2017
+  demands: Cmd
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: automagically.DownloadFile.DownloadFile.DownloadFile@1
+  displayName: 'Download Wyam'
+  inputs:
+    FileUrl: 'https://github.com/Wyamio/Wyam/releases/download/v1.0.0/Wyam-v1.0.0.zip'
+
+- task: ExtractFiles@1
+  displayName: 'Extract files '
+  inputs:
+    archiveFilePatterns: 'Wyam-v1.0.0.zip'
+    destinationFolder: wyam
+
+- task: BatchScript@1
+  displayName: 'Run script build.cmd'
+  inputs:
+    filename: build.cmd
+
+- task: ArchiveFiles@2
+  displayName: 'Archive Wyam output'
+  inputs:
+    rootFolderOrFile: '$(Build.SourcesDirectory)/output'
+
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: Wyam output'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
