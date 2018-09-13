@@ -1,0 +1,31 @@
+queue:
+  name: Hosted VS2017
+
+steps:
+- powershell: 'wget https://github.com/Wyamio/Wyam/releases/download/v1.0.0/Wyam-v1.0.0.zip -OutFile $(Build.SourcesDirectory)/Wyam-v1.0.0.zip'
+  displayName: 'Download Wyam'
+
+- task: ExtractFiles@1
+  displayName: 'Extract files '
+  inputs:
+    archiveFilePatterns: '$(Build.SourcesDirectory)/Wyam-v1.0.0.zip'
+    destinationFolder: wyam
+
+- script: 'wyam\wyam.exe -i wwwroot'
+  failOnStderr: true
+  displayName: 'Generate website with Wyam'
+  env:
+    SKIP_WYAM_API_GEN: '0'
+
+# Copy Files
+- task: CopyFiles@2
+  inputs:
+    displayName: 'Copy output to Artifacts'
+    sourceFolder: '$(Build.SourcesDirectory)\output'
+    contents: '**\*'
+    targetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: Wyam output'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
