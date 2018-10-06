@@ -1,8 +1,8 @@
 Title: Transitions
-Order: 10
+Order: 20
 ---
 Transitions in Avalonia are also heavily inspired by CSS Animations. They listen to any changes in target property's value 
-and subsequently animates the change according to its parameters. They can be defined on any `Controls` via `Transitions` property:
+and subsequently animates the change according to its parameters. They can be defined on any `Control` via `Transitions` property:
 
 ```xml
 <Window xmlns="https://github.com/avaloniaui">
@@ -27,8 +27,11 @@ and subsequently animates the change according to its parameters. They can be de
 <Window>
 ```
 
-Transitions can also be defined in any style by using a `Setter` with `Transitions` as the target property and encapsulating them
-in a `Transitions` object, like so:
+The above example will listen to changes in the `Rectangle`'s `Opacity` property, and when the
+value changes, apply a smooth transition from the old value to the new value over 2 seconds.
+
+Transitions can also be defined in any style by using a `Setter` with `Transitions` as the
+target property and encapsulating them in a `Transitions` object, like so:
 
 ```xml
 <Window xmlns="https://github.com/avaloniaui">
@@ -54,11 +57,12 @@ in a `Transitions` object, like so:
 <Window>
 ```
 
-Every transitions has a `Property`, `Delay`, `Duration` and an optional `Easing` property. 
-Easing functions on [Animations](/doc/animations/animations#Easings) can be reused.
+Every transition has a `Property`, `Delay`, `Duration` and an optional `Easing` property. 
+The easing functions are the same as those described in [Keyframe Animations](keyframes#Easings).
 
-The following transition types are available:
+The following transition types are available. The correct type must be used depending on the type
+of the property being animated.
 
-* `DoubleTransitions`
-* `FloatTransitions`
-* `IntegerTransitions` 
+* `DoubleTransitions`: For `double` properties
+* `FloatTransitions`: For `float `properties
+* `IntegerTransitions`: For `int` properties

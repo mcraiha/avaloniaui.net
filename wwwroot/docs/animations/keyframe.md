@@ -1,8 +1,15 @@
-Title: Animations
-Order: 0
+Title: Keyframe Animations
+Order: 10
 ---
-Animations in Avalonia are heavily inspired by CSS Animations. They can be defined on any style using their
-`Style.Animation` property:
+
+Keyframe animations in Avalonia are heavily inspired by CSS Animations. They can be used to animate
+any number of properties on a control, using any number of keyframes to define the states that each
+property must pass through. Keyframe animations can run any number of times, in either direction.
+
+# Defining A Keyframe Animation
+
+Keyframe animations are applied using styles. They can be defined on any style by adding an
+`Animation` object to the `Style.Animation` property:
 
 ```xml
 <Window xmlns="https://github.com/avaloniaui">
@@ -31,13 +38,15 @@ Animations in Avalonia are heavily inspired by CSS Animations. They can be defin
 The example above animates the target `Control` as defined by its [selector](/docs/styles/selectors).
 It will be run immediately when the control is loaded.
 
-## Triggers
+## Triggering Animations
 
 Unlike WPF's `Triggers`, Animations defined in XAML rely on [selectors](/docs/styles/selectors) for 
-their triggering behavior. If the selector doesn't contain any pseudoclass, the animation will be
-triggered when a matching `Control` is spawned into the visual tree. Otherwise, the animations will
-run whenever its pseudoclass is activated. Also, when the selector turns negative (that means when a pseudoclass is 
-no longer active or the control is removed), the currently running animation will therefore be canceled.
+their triggering behavior. Selectors can always apply to a control, or they can conditionally apply
+(for example if the control has a style class appled).
+
+If the selector isn't conditional then the animation will be triggered when a matching `Control` is
+spawned into the visual tree. Otherwise, the animations will run whenever its selector is activated.
+When the selector no longer matches the currently running animation will be canceled.
 
 ## `KeyFrames`
 
