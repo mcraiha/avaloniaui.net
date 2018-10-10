@@ -1,4 +1,4 @@
-Title: Avalonia Native
+Title: A new MacOS backend for the next version of AvaloniaUI
 Published: 2018-10-09
 Category: Release
 Author: Dan Walmsley
@@ -23,7 +23,7 @@ You can add this to your csproj:
 <PackageReference Include="Avalonia.Native" Version="0.7.0-build4201810097" />
 ```
 
-Will then need to change your AppBuilder code usually found in `Program.cs` or `App.xaml.cs` to configure the use of `Avalonia.Native` when your application is run on OSX.
+Then you will need to change your AppBuilder code usually found in `Program.cs` or `App.xaml.cs` to configure the use of `Avalonia.Native` when your application is run on OSX.
 
 I recommend doing this by replacing the BuildAvaloniaApp method like so:
 
@@ -49,11 +49,11 @@ I recommend doing this by replacing the BuildAvaloniaApp method like so:
 
 ## What is Avalonia.Native?
 
-Avalonia.Native isnt just an Avalonia backend for OSX, it is actually set of COM based interfaces that Avalonia can attach to. This allows Avalonia  backends to be written in native code on platforms where this is difficult in managed code.
+Avalonia.Native isn't just an Avalonia backend for OSX, it is actually set of COM based interfaces that Avalonia can attach to. This allows Avalonia  backends to be written in native code on platforms where this is difficult in managed code.
 
 You can find the repo for Avalonia.Native here:
 https://github.com/AvaloniaUI/Avalonia.Native
 
 In the near future Avalonia.Native will become the default backend for Mac so you wont need to take any steps to use it in your app.
 
-Many thanks to @kekekeks who has helped to build this.
+Many thanks to @kekekeks who has helped to build this. You can also find my on github or gitter with @danwalmsley if you require any assistance or encounter any issues.
