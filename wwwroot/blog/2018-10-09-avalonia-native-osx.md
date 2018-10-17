@@ -8,19 +8,19 @@ Many of you who have been using Avalonia cross platform will have realised that 
 
 For the past few months we have been working on a new backend for OSX. We now have a stable solution for OSX going forward.
 
-Currently we are publishing the new backend as a seperate nuget package.
+Currently we are publishing the new backend as a seperate nuget package. The OSX backend now supports OpenGL GPU acceleration.
 
 ## Try the new Mac Backend today
 
 To try the new backend today you need to update your application to Avalonia version `0.6.2-build6362-beta` for information on how to use Avalonia nightly builds see: [Using nightly build feed](https://github.com/AvaloniaUI/Avalonia/wiki/Using-nightly-build-feed)
 
 Once you are on the nightly build you can the add the nuget package `Avalonia.Native` the latest build at time of writing is
-`0.7.0-build4201810097`
+`0.7.0-build4201810173`
 
 You can add this to your csproj:
 
 ```xml
-<PackageReference Include="Avalonia.Native" Version="0.7.0-build4201810097" />
+<PackageReference Include="Avalonia.Native" Version="0.7.0-build4201810173" />
 ```
 
 Then you will need to change your AppBuilder code usually found in `Program.cs` or `App.xaml.cs` to configure the use of `Avalonia.Native` when your application is run on OSX.
