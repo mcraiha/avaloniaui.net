@@ -20,7 +20,7 @@ Once you are on the nightly build you can the add the nuget package `Avalonia.Na
 You can add this to your csproj:
 
 ```xml
-<PackageReference Include="Avalonia.Native" Version="0.7.0-build42018101111" />
+<PackageReference Include="Avalonia.Native" Version="0.7.0-build42018101111"/>
 ```
 
 Then you will need to change your AppBuilder code usually found in `Program.cs` or `App.xaml.cs` to configure the use of `Avalonia.Native` when your application is run on OSX.
