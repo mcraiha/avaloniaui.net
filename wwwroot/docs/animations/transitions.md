@@ -58,11 +58,18 @@ target property and encapsulating them in a `Transitions` object, like so:
 ```
 
 Every transition has a `Property`, `Delay`, `Duration` and an optional `Easing` property. 
+
+`Property` refers to a transition's target for listening and animating values upon.
+
+`Delay` refers to the amount of time before the transition is applied to the target.
+
+`Duration` refers to the amount of time that the transition plays.
+
 The easing functions are the same as those described in [Keyframe Animations](keyframes#Easings).
 
 The following transition types are available. The correct type must be used depending on the type
 of the property being animated.
 
-* `DoubleTransitions`: For `double` properties
-* `FloatTransitions`: For `float `properties
-* `IntegerTransitions`: For `int` properties
+* `DoubleTransitions`: For `double` target properties
+* `FloatTransitions`: For `float ` target properties
+* `IntegerTransitions`: For `int` target properties

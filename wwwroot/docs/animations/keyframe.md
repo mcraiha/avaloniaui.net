@@ -46,7 +46,7 @@ their triggering behavior. Selectors can always apply to a control, or they can 
 
 If the selector isn't conditional then the animation will be triggered when a matching `Control` is
 spawned into the visual tree. Otherwise, the animations will run whenever its selector is activated.
-When the selector no longer matches the currently running animation will be canceled.
+When the selector no longer matches, the currently running animation will be canceled.
 
 ## `KeyFrames`
 
@@ -135,8 +135,19 @@ Easing functions can be set by setting the name of the desired function to the `
 </Animation>
 ```
 
-The following list contains the available easing functions. Adding your own easing functions are not yet
-supported as of this document's writing.
+You can also add your custom easing function class like this:
+
+```xml
+<Animation Duration="0:0:1"
+           Delay="0:0:1">
+    <Animation.Easing>
+        <local:YourCustomEasingClassHere/>
+    </Animation.Easing> 
+    ...
+</Animation>
+```
+
+The following list contains the built-in easing functions.
 
 * LinearEasing (Default)
 * BackEaseIn
