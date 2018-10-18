@@ -82,7 +82,6 @@ property:
   </ContentControl>
 <Window>
 ```
-
-<img class="doc-img" src="images/student-first-last-name.png">
+![Student first and last name](images/student-first-last-name.png)
 
 For more information see the [data templates](/docs/templates/datatemplate) section.
