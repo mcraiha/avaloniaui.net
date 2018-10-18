@@ -15,12 +15,12 @@ Currently we are publishing the new backend as a seperate nuget package. The OSX
 To try the new backend today you need to update your application to Avalonia version `0.6.2-build6362-beta` for information on how to use Avalonia nightly builds see: [Using nightly build feed](https://github.com/AvaloniaUI/Avalonia/wiki/Using-nightly-build-feed)
 
 Once you are on the nightly build you can the add the nuget package `Avalonia.Native` the latest build at time of writing is
-`0.7.0-build4201810173`
+`0.7.0-build42018101111`
 
 You can add this to your csproj:
 
 ```xml
-<PackageReference Include="Avalonia.Native" Version="0.7.0-build4201810173" />
+<PackageReference Include="Avalonia.Native" Version="0.7.0-build42018101111"/>
 ```
 
 Then you will need to change your AppBuilder code usually found in `Program.cs` or `App.xaml.cs` to configure the use of `Avalonia.Native` when your application is run on OSX.
@@ -57,3 +57,6 @@ https://github.com/AvaloniaUI/Avalonia.Native
 In the near future Avalonia.Native will become the default backend for Mac so you wont need to take any steps to use it in your app.
 
 Many thanks to @kekekeks who has helped to build this. You can also find my on github or gitter with @danwalmsley if you require any assistance or encounter any issues.
+
+![](https://files.gitter.im/VitalElement/AvalonStudio/51zL/Screen-Shot-2018-10-12-at-00.47.42.png)
+
