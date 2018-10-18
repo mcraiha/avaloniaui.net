@@ -10,7 +10,7 @@ Installing the extension will add a couple of project templates to Visual Studio
 - **Avalonia Application**: This will create a barebones Avalonia application
 - **Avalonia MVVM Application**: This will create an application that uses the Model-View-ViewModel pattern with [ReactiveUI](https://reactiveui.net/)
 
-<img class="screenshot-half" src="images/new-project-dialog.png">
+![New Project Dialog](images/new-project-dialog.png)
 
 By default these application templates will dual-target .NET Framework 4.6.1 and .NET Core 2.0.
 

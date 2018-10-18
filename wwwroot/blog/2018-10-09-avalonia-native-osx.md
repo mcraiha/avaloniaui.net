@@ -56,7 +56,7 @@ https://github.com/AvaloniaUI/Avalonia.Native
 
 In the near future Avalonia.Native will become the default backend for Mac so you wont need to take any steps to use it in your app.
 
-Many thanks to @kekekeks who has helped to build this. You can also find my on github or gitter with @danwalmsley if you require any assistance or encounter any issues.
+Many thanks to [@kekekeks](https://github.com/kekekeks) who has helped to build this. You can also find me on Github or Gitter at [@danwalmsley](https://github.com/danwalmsley) if you require any assistance or encounter any issues.
 
-![](https://files.gitter.im/VitalElement/AvalonStudio/51zL/Screen-Shot-2018-10-12-at-00.47.42.png)
+![Screenshot](https://files.gitter.im/VitalElement/AvalonStudio/51zL/Screen-Shot-2018-10-12-at-00.47.42.png)
 
