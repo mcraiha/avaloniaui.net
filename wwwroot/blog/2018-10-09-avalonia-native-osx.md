@@ -8,7 +8,7 @@ Many of you who have been using Avalonia cross platform will have realised that 
 
 For the past few months we have been working on a new backend for OSX. We now have a stable solution for OSX going forward.
 
-Currently we are publishing the new backend as a seperate nuget package.
+Currently we are publishing the new backend as a seperate nuget package. The OSX backend now supports OpenGL GPU acceleration.
 
 ## Try the new Mac Backend today
 
