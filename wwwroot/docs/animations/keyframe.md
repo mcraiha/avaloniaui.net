@@ -2,6 +2,10 @@ Title: Keyframe Animations
 Order: 10
 ---
 
+<div class="disclaimer">
+The following features are only available on nightly builds and to the upcoming 0.7 release.
+</div>
+
 Keyframe animations in Avalonia are heavily inspired by CSS Animations. They can be used to animate
 any number of properties on a control, using any number of keyframes to define the states that each
 property must pass through. Keyframe animations can run any number of times, in either direction.

@@ -2,6 +2,10 @@ Title: Animations
 Order: 0
 ---
 
+<div class="disclaimer">
+The following features are only available on nightly builds and to the upcoming 0.7 release.
+</div>
+
 There are two types of animations in Avalonia:
 
 - [Keyframe animations](keyframe.md) animate any number of properties on a control, using any
