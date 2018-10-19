@@ -1,4 +1,5 @@
-# Avalonia Logging
+Title: Avalonia Logging
+---
 
 Avalonia uses [Serilog](https://github.com/serilog/serilog) for logging via
 the Avalonia.Logging.Serilog assembly.
@@ -22,7 +23,7 @@ By default, this logging setup will write log messages with a severity of
 documentation](https://github.com/serilog/serilog/wiki/Configuration-Basics)
 for more information on the options here.
 
-## Areas
+# Areas
 
 Each Avalonia log message has an "Area" that can be used to filter the log to
 include only the type of events that you are interested in. These are currently:
@@ -44,7 +45,7 @@ SerilogLogger.Initialize(new LoggerConfiguration()
     .CreateLogger());
 ```
 
-## Removing Serilog
+# Removing Serilog
 
 If you don't want a dependency on Serilog in your application, simply remove
 the reference to Avalonia.Logging.Serilog and the code that initializes it. If

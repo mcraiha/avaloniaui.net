@@ -1,6 +1,11 @@
 Title: Transitions
 Order: 20
 ---
+
+<div class="disclaimer">
+    &#9888;&#65039; The following features are only available on nightly builds and to the upcoming 0.7 release.
+</div>
+
 Transitions in Avalonia are also heavily inspired by CSS Animations. They listen to any changes in target property's value 
 and subsequently animates the change according to its parameters. They can be defined on any `Control` via `Transitions` property:
 

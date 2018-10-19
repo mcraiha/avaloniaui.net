@@ -2,6 +2,10 @@ Title: Keyframe Animations
 Order: 10
 ---
 
+<div class="disclaimer">
+    &#9888;&#65039; The following features are only available on nightly builds and to the upcoming 0.7 release.
+</div>
+
 Keyframe animations in Avalonia are heavily inspired by CSS Animations. They can be used to animate
 any number of properties on a control, using any number of keyframes to define the states that each
 property must pass through. Keyframe animations can run any number of times, in either direction.
@@ -38,7 +42,7 @@ Keyframe animations are applied using styles. They can be defined on any style b
 The example above animates the target `Control` as defined by its [selector](/docs/styles/selectors).
 It will be run immediately when the control is loaded.
 
-## Triggering Animations
+# Triggering Animations
 
 Unlike WPF's `Triggers`, Animations defined in XAML rely on [selectors](/docs/styles/selectors) for 
 their triggering behavior. Selectors can always apply to a control, or they can conditionally apply
@@ -48,7 +52,7 @@ If the selector isn't conditional then the animation will be triggered when a ma
 spawned into the visual tree. Otherwise, the animations will run whenever its selector is activated.
 When the selector no longer matches, the currently running animation will be canceled.
 
-## `KeyFrames`
+# `KeyFrames`
 
 The `KeyFrame` objects defines when the target `Setter` objects should be applied on the target `Control`, 
 with value interpolation in-between.
@@ -75,7 +79,7 @@ desired `KeyFrame`:
 </Animation>
 ```
 
-## Delay
+# Delay
 
 You can add a delay in a `Animation` by defining the desired delay time on its `Delay` property:
 
@@ -86,7 +90,7 @@ You can add a delay in a `Animation` by defining the desired delay time on its `
 </Animation>
 ```
 
-## Repeat
+# Repeat
 
 You can set the following repeat behaviors on `RepeatCount` property of an `Animation`.
 
@@ -96,7 +100,7 @@ You can set the following repeat behaviors on `RepeatCount` property of an `Anim
 |`1` to N|Repeat N times.|
 |`Loop`|Repeat Indefinitely|
 
-## Playback Direction
+# Playback Direction
 
 The `PlaybackDirection` property defines how should the animation be played, including repeats.
 
@@ -109,7 +113,7 @@ The following table describes the possible behaviors:
 |`Alternate`|The animation is played forwards first, then backwards.|
 |`AlternateReverse`|The animation is played backwards first, then forwards.|
 
-## Value fill modes
+# Value fill modes
 
 The `FillMode` property defines whether the first or last interpolated value of an animation
 persist before or after running an animation and on delays in-between runs. 
@@ -123,7 +127,7 @@ The following table describes the possible behaviors:
 |`Backward`|The first interpolated value will be displayed on animation delay.|
 |`Both`|Both `Forward` and `Backward` behaviors will be applied.|
 
-## Easings
+# Easings
 
 Easing functions can be set by setting the name of the desired function to the `Animation`'s `Easing` property:
 

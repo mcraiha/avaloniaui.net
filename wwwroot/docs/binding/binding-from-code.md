@@ -6,7 +6,7 @@ Binding from code in Avalonia works somewhat differently to WPF/UWP. At the low 
 binding system is based on Reactive Extensions' `IObservable` which is then built upon by XAML
 bindings (which can also be instantiated in code).
 
-## Subscribing to Changes to a Property
+# Subscribing to Changes to a Property
 
 You can subscribe to changes on a property by calling the `GetObservable`
 method. This returns an `IObservable<T>` which can be used to listen for changes
@@ -40,7 +40,7 @@ operator:
     var text = textBlock.GetObservable(TextBlock.TextProperty).Skip(1);
 ```
 
-## Binding to an observable
+# Binding to an observable
 
 You can bind a property to an observable using the `AvaloniaObject.Bind` method:
 
@@ -58,7 +58,7 @@ source.OnNext("hello");
 source.OnNext("world!");
 ```
 
-## Setting a binding in an object initializer
+# Setting a binding in an object initializer
 
 It is often useful to set up bindings in object initializers. You can do this using the indexer:
 
@@ -90,7 +90,7 @@ Of course the indexer can be used outside object initializers too:
 textBlock2[!TextBlock.TextProperty] = textBlock1[!TextBlock.TextProperty];
 ```
 
-## Transforming binding values
+# Transforming binding values
 
 Because we're working with observables, we can easily transform the values we're binding!
 
@@ -104,7 +104,7 @@ var textBlock = new TextBlock
 };
 ```
 
-## Using XAML bindings from code
+# Using XAML bindings from code
 
 Sometimes when you want the additional features that XAML bindings provide, it's easier to use XAML bindings from code. For example, using only observables you could bind to a property on `DataContext` like this:
 
@@ -125,7 +125,7 @@ var textBlock = new TextBlock
 };
 ```
 
-## Subscribing to a Property on Any Object
+# Subscribing to a Property on Any Object
 
 The `GetObservable` method returns an observable that tracks changes to a property on a single
 instance. However, if you're writing a control you may want to implement an `OnPropertyChanged`
