@@ -3,7 +3,7 @@ Order: 10
 ---
 
 <div class="disclaimer">
-The following features are only available on nightly builds and to the upcoming 0.7 release.
+    &#9888;&#65039; The following features are only available on nightly builds and to the upcoming 0.7 release.
 </div>
 
 Keyframe animations in Avalonia are heavily inspired by CSS Animations. They can be used to animate
