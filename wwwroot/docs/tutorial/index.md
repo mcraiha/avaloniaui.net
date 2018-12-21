@@ -19,7 +19,7 @@ these concepts can be applied to all types of applications.
 MVVM, as its name suggests has three parts:
 
 - **Model**s usually represent data read from a database, a web API or other domain specific service. Models are usually represented as POCO (Plain Old C# Objects) classes, which means that they usually don't have any logic built into them; instead they're just a collection of properties which represent the shape of the data for serialization.
-- **View Model**s contain the logic of the application and describe the data that will be displayed, however they don't actually contain any code that creates controls. In this way the logic of the application can be easily unit tested without having to display anything on-screen.
+- **View Model**s contain the logic of the application and describe the data that will be displayed, however they don't actually contain any code that creates controls. In this way the logic of the application can be easily unit tested without having to display anything on-screen. You can read more about view models in [the ReactiveUI documentation](https://reactiveui.net/docs/handbook/view-models/).
 - **View**s are usually Avalonia `UserControls` which describe how to display a section of the UI. Each view typically has a related view model. Views don't contain business-related logic, instead they [bind](/docs/binding) to their view model to get data.
 
 In addition, most applications will add _services_ to this mix, which usually implement the reading and writing of models and other application-specific logic.

@@ -1,4 +1,4 @@
-Title: Introduction
+Title: Creating the Project
 Order: 10
 ---
 
@@ -28,7 +28,7 @@ First install the Avalonia templates for .NET Core by following the instructions
 Now you can create the application from the template:
 
 ```powershell
-dotnet new avalonia.app.mvvm -o Todo
+dotnet new avalonia.app.mvvm -o Todo -n Todo
 ```
 
 ## Project structure
