@@ -2,7 +2,7 @@ queue:
   name: Hosted VS2017
 
 steps:
-- script: 'dotnet install -g Wyam.Tool'
+- script: 'dotnet tool install -g Wyam.Tool'
 
 - script: 'wyam -i wwwroot'
   failOnStderr: true
