@@ -2,16 +2,9 @@ queue:
   name: Hosted VS2017
 
 steps:
-- powershell: 'wget https://github.com/Wyamio/Wyam/releases/download/v1.0.0/Wyam-v1.0.0.zip -OutFile $(Build.SourcesDirectory)/Wyam-v1.0.0.zip'
-  displayName: 'Download Wyam'
+- script: 'dotnet install -g Wyam.Tool'
 
-- task: ExtractFiles@1
-  displayName: 'Extract files '
-  inputs:
-    archiveFilePatterns: '$(Build.SourcesDirectory)/Wyam-v1.0.0.zip'
-    destinationFolder: wyam
-
-- script: 'wyam\wyam.exe -i wwwroot'
+- script: 'wyam -i wwwroot'
   failOnStderr: true
   displayName: 'Generate website with Wyam'
   env:
