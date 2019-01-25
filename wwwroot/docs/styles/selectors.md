@@ -119,3 +119,16 @@ new Style(x => x.OfType<Button>().Template().OfType<ContentPresenter>());
 Matches a control in a control template. All other selectors listed here work on the logical tree.
 If you wish to select a control in a control template then you must use this selector. The example
 selects `ContentPresenter` controls in the templates of `Button`s.
+
+# Not
+
+```xml
+<Style Selector=":not(.h1)">
+<Style Selector="TextBlock:not(.h1)">
+```
+```csharp
+new Style(x => x.Not(y => y.Class("h1")));
+new Style(x => x.OfType<TextBlock>().Not(y => y.Class("h1")));
+```
+
+Negates an inner selector.
