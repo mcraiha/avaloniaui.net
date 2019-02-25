@@ -16,7 +16,8 @@ Edit the `TodoListView.xaml` file to have the following content:
  `Views/TodoListView.xaml`:
  ```xml
  <UserControl xmlns="https://github.com/avaloniaui"
-              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              x:Class="Todo.Views.TodoListView">
   <ItemsControl Items="{Binding Items}">
     <ItemsControl.ItemTemplate>
       <DataTemplate>
@@ -73,7 +74,8 @@ Finally we need to edit `MainWindow.xaml` to display the content:
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="clr-namespace:Todo.ViewModels;assembly=Todo"
-        Icon="resm:Todo.Assets.avalonia-logo.ico"
+        x:Class="Todo.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
         Title="Avalonia Todo" Width="400" Height="600"
         Content="{Binding Content}">
 </Window>

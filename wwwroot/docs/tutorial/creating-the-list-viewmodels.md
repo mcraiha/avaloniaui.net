@@ -2,7 +2,7 @@ Title: Creating the List View Models
 Order: 30
 ---
 
-The first thing we want to do is display a list of the items read from the database. For this we're going to first need a view model which represents an item in the list. We'll call this `TodoItemViewModel`.
+The next thing we want to do is display a list of the items read from the database. For this we're going to first need a view model which represents an item in the list. We'll call this `TodoItemViewModel`.
 
 `ViewModels\TodoItemViewModel.cs`:
 ```csharp
@@ -48,7 +48,7 @@ There are two things to notice about the view model:
 - It derives from `ViewModelBase`. This itself derives from `ReactiveObject` which implements the [`INotifyPropertyChanged`](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged?view=netstandard-2.0) interface. `INotifyPropertyChanged` is part of the .NET standard library and it exposes an event (called `PropertyChanged`) which is fired when a property is changed.
 - The property setters call `RaiseAndSetIfChanged`. This method handles updating the backing field and calling `PropertyChanged` if the value has changed.
 
-`INotifyPropertyChanged` is important to Avalonia because it is by listening to this event that the user interface knows that something in the view model has changed, and that the UI should be updated.
+`INotifyPropertyChanged` is important to Avalonia because it is by listening to the event on this interface that the user interface knows that something in the view model has changed, and that the UI should be updated.
 
 Next we're going to need a view model which represents the list which we will call `TodoListViewModel`:
 
