@@ -1,4 +1,10 @@
-For [WhenActivated](https://reactiveui.net/docs/handbook/when-activated/) to work, you need to use custom base classes from `Avalonia.ReactiveUI` package, such as `ReactiveWindow<TViewModel>` or `ReactiveUserControl<TViewModel>`. Of course, you can also implement the `IViewFor<TViewModel>` interface by hand in your class, but ensure to store the `ViewModel` inside an `AvaloniaProperty`. [Activation and deactivation](https://reactiveui.net/docs/handbook/when-activated/) feature will work for your view model only in case you put an empty `WhenActivated` block right before a call to  `AvaloniaXamlRenderer.Load(this)`. See an example:
+Title: ReactiveUI
+Order: 50
+---
+
+Avalonia ships its own fork of [ReactiveUI](https://reactiveui.net) in  `Avalonia.ReactiveUI`.
+
+For [WhenActivated](https://reactiveui.net/docs/handbook/when-activated/) to work, you need to use custom base classes from the `Avalonia.ReactiveUI` package, such as `ReactiveWindow<TViewModel>` or `ReactiveUserControl<TViewModel>`. Of course, you can also implement the `IViewFor<TViewModel>` interface by hand in your class, but ensure to store the `ViewModel` inside an `AvaloniaProperty`. [Activation and deactivation](https://reactiveui.net/docs/handbook/when-activated/) feature will work for your view model only in case you put an empty `WhenActivated` block right before a call to  `AvaloniaXamlRenderer.Load(this)`. See an example:
 
 ```cs
 public class ViewModel : ReactiveObject, ISupportsActivation
