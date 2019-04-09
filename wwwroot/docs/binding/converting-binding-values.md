@@ -45,7 +45,7 @@ For more advanced conversions, Avalonia supports
 the same as other XAML frameworks.
 
 > Note: The `IValueConverter` interface is not available in .NET standard 2.0 so we ship our own,
-  in the `Avalonia.Markup` namespace.
+  in the `Avalonia.Data.Converters` namespace.
 
 Usage is identical to other XAML frameworks:
 
