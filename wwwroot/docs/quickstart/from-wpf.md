@@ -8,7 +8,7 @@ are the most common:
 # Styling
 
 The most obvious difference from other XAML frameworks is that Avalonia uses a
-[CSS-like styling system](styles). Styles aren't stored in a
+[CSS-like styling system](/docs/styles/styles). Styles aren't stored in a
 `Resources` collection as in WPF, they are stored in a separate `Styles`
 collection:
 
@@ -70,7 +70,7 @@ So to recap:
 # DependencyProperty
 
 The Avalonia equivalent of `DependencyProperty` is `StyledProperty`, however
-Avalonia [has a richer property system than WPF](defining-properties.md),
+Avalonia [has a richer property system than WPF](/docs/authoring-controls/defining-properties),
 and includes `DirectProperty` for turning standard CLR properties into Avalonia
 properties. The common base class of `StyledProperty` and `DirectProperty`
 is `AvaloniaProperty`.
@@ -152,7 +152,7 @@ the same way that event class listeners are added](working-with-properties.md#su
 
 # RenderTransforms and RenderTransformOrigin
 
-RenderTransformOrigins are different in WPF and Avalonia: If you apply a `RenderTransform`, keep in mind that our default value for the RenderTransformOrigin is `RelativePoint.Center`. In WPF the default value is `RelativePoint.TopLeft` (0, 0). In controls like Viewbox (currently being developed) the same code will lead to a different rendering behavior:
+RenderTransformOrigins are different in WPF and Avalonia: If you apply a `RenderTransform`, keep in mind that our default value for the RenderTransformOrigin is `RelativePoint.Center`. In WPF the default value is `RelativePoint.TopLeft` (0, 0). In controls like Viewbox the same code will lead to a different rendering behavior:
 
 In WPF:
 ![WPF](https://files.gitter.im/AvaloniaUI/Avalonia/cDrM/image.png)
