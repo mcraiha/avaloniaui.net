@@ -28,3 +28,6 @@ property. This command will be executed when the button is clicked. For more inf
 |Pseudoclass|Description|
 |-----------|-----------|
 |`:pressed`|Set when the button is depressed|
+
+# Source code
+[Button.cs](https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Controls/Button.cs)
