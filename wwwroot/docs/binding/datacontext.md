@@ -45,7 +45,7 @@ When binding `DataContext`, the `DataContext` of the parent control is used as t
 ```
 
 Controls that display content based on a [data template](/docs/templates/datatemplate) will automatically
-set the `DataContext` for the controls in the template. For example with `ContentControl`
+set the `DataContext` for the controls in the template. For example `ContentControl`:
 
 ```xml
 <Window>
