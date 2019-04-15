@@ -160,11 +160,8 @@ h1 {
   padding-top: 0;
   
   h1 {
-    font-size: floor((@font-size-base * 2.6));
-    background-color: #f4f4f4;
-    padding: 8px 16px;
-    .border-radius(@border-radius-large);
-    border-bottom: 2px solid #ddd;   
+    font-size: floor((@font-size-base * 3));
+    padding: 16px 0px;
   }
 }
 
@@ -175,11 +172,19 @@ h1 {
 }
 
 .content h1 {
-  color: lighten(@brand-primary, 10%);
-  font-style: italic;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: rgb(236, 236, 236);
+  padding-top: 32px;
+  margin-top: 40px;
 }
 
-//Create the sidebar skin
+.content h1:first-child {
+  border-top-style: none;
+  margin-top: 0;
+}
+  
+  //Create the sidebar skin
 .skin-light-sidebar(@brand-primary);
 
 .sidebar {
