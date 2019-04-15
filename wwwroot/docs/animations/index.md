@@ -1,5 +1,5 @@
 Title: Animations
-Order: 0
+Order: 40
 ---
 
 There are two types of animations in Avalonia:
