@@ -10,28 +10,52 @@ If you created your application with the [Avalonia MVVM Application](create-new-
 then you will see something like this in your `Program.cs` file:
 
 ```csharp
-static void Main(string[] args)
+private static void AppMain(Application app, string[] args)
 {
-    BuildAvaloniaApp().Start<MainWindow>(() => new MainWindowViewModel());
+    var window = new MainWindow
+    {
+        DataContext = new MainWindowViewModel(),
+    };
+
+    app.Run(window);
 }
 ```
 
-What this piece of code means is that when the `MainWindow` is created, a new instance of
-`MainWindowViewModel` will be created and assigned to the window's `DataContext` property. From here
-all bindings will by default bind to properties on this object.
-
-You can bind child controls to properties on the `DataContext` too, for example:
+This means that when the `MainWindow` is created, a new instance of `MainWindowViewModel` will be
+created and assigned to the window's `DataContext` property. From here all bindings will by default
+bind to properties on this object:
 
 ```xml
 <Window>
-  <Button DataContext="{Binding ChildProperty}">
+    <Button Content="{Binding ButtonCaption}"/>
 </Window>
 ```
 
-Will bind the `Button`'s `DataContext` to `Window.DataContext.ChildProperty`.
+Will bind the `Button`'s `Content` to `Window.DataContext.ButtonCaption`.
 
-> Note that when binding to `DataContext`, the `DataContext` of the visual parent is used as the
-source of the binding.
+# Binding DataContext
 
-Some controls automatically bind child controls' data contexts, for example 
-[`ContentControl`](/docs/controls/contentcontrol) and [`ItemsControl`](/docs/controls/itemscontrol).
+When binding `DataContext`, the `DataContext` of the parent control is used as the source of the binding:
+
+```xml
+<Window>
+    <!-- Will bind `DataContext` to `Window.DataContext.Content -->
+    <StackPanel DataContext="{Binding Content}"/>
+</Window>
+```
+
+Controls that display content based on a [data template](/docs/templates/datatemplate) will automatically
+set the `DataContext` for the controls in the template. For example with `ContentControl`
+
+```xml
+<Window>
+    <ContentControl DataContext="{Binding Content}">
+        <ContentControl.ContentTemplate>
+            <DataTemplate>
+                <!-- Will bind `Text` to `Window.DataContext.Content.Header -->
+                <TextBlock Text="{Binding Header}"/>
+            </DataTemplate>
+        </ContentControl.ContentTemplate>
+    </ContentControl>
+</Window>
+```
