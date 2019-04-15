@@ -54,12 +54,12 @@ Where Avalonia.Controls.UnitTests is the name of the project.
 Unit test methods should be named in a sentence style, separated by underscores, that describes in
 English what the test is testing, e.g.
 
-```C#
+```csharp
     void Calling_Foo_Should_Increment_Bar()
 ```
 
 Render tests should describe what the produced image is:
 
-```C#
+```csharp
     void Rectangle_2px_Stroke_Filled()
 ```

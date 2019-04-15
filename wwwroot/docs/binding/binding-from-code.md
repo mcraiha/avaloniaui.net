@@ -25,7 +25,7 @@ subscribe to the property's changes.
 for this guide, but here's an example which uses the returned observable to
 print a message with the changing property values to the console:
 
-```c#
+```csharp
     var textBlock = new TextBlock();
     var text = textBlock.GetObservable(TextBlock.TextProperty);
     text.Subscribe(value => Console.WriteLine(value + " Changed"));
@@ -36,7 +36,7 @@ of the property immediately and then push a new value each time the property
 changes. If you don't want the current value, you can use the rx `Skip`
 operator:
 
-```c#
+```csharp
     var text = textBlock.GetObservable(TextBlock.TextProperty).Skip(1);
 ```
 

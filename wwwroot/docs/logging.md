@@ -6,7 +6,7 @@ the Avalonia.Logging.Serilog assembly.
 
 The following method should be present in your App.xaml.cs file:
 
-```C#
+```csharp
 private void InitializeLogging()
 {
 #if DEBUG
@@ -37,7 +37,7 @@ include only the type of events that you are interested in. These are currently:
 To limit the log output to a specific area you can add a filter; for example
 to enable verbose logging but only about layout:
 
-```C#
+```csharp
 SerilogLogger.Initialize(new LoggerConfiguration()
     .Filter.ByIncludingOnly(Matching.WithProperty("Area", LogArea.Layout))
     .MinimumLevel.Verbose()
