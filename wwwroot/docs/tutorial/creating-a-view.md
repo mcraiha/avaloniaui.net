@@ -55,6 +55,37 @@ alongside `MainWindow.xaml`.
 </UserControl>
 ```
 
+Alongside the XAML, you will also find a `TodoListView.xaml.cs` file containing the code-behind
+for the view (in Visual Studio this is nested under the XAML file so click the expander next to
+the XAML file in Solution Explorer to see it):
+
+<div class="code-filename">Views/TodoListView.xaml.cs</div>
+
+```csharp
+using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Markup.Xaml;
+
+namespace Todo.Views
+{
+    public class TodoListView : UserControl
+    {
+        public TodoListView()
+        {
+            this.InitializeComponent();
+        }
+
+        private void InitializeComponent()
+        {
+            AvaloniaXamlLoader.Load(this);
+        }
+    }
+}
+```
+
+We're not going to touch the code-behind file for a little while, but notice that the class is
+called `TodoListView` and it's located in the `Todo.Views` namespace.
+
 # Edit the UserControl
 
 Edit the contents of `Views/TodoListView.xaml` to contain the following:
@@ -83,7 +114,7 @@ in the previewer after completing a build:
 
 ![Designer view](images/creating-a-view-todolistview.png)
 
-# What Does it all Mean?
+# What does it all mean?
 
 Lets take a look at the code we just entered line-by-line.
 
@@ -153,6 +184,9 @@ Next we add another panel: a `StackPanel`. `StackPanel` lays out its child contr
 a stack. By default it lays out the controls vertically, but you can also make it lay out controls
 horizontally by setting the `Orientation` property, e.g. `<StackPanel Orientation="Horizontal">`.
 
+Because this is the last child in the `DockPanel` it will fill the remaining space in the center
+of the control.
+
 ```xml
 <CheckBox Margin="4">Walk the dog</CheckBox>
 <CheckBox Margin="4">Buy some milk</CheckBox>
@@ -160,3 +194,48 @@ horizontally by setting the `Orientation` property, e.g. `<StackPanel Orientatio
 
 Last of all, we add two `CheckBox` controls to represent the TODO items. We're also giving the
 controls a margin to separate them a little bit visually.
+
+# Display the view in the Window
+
+To see the view we've just created, we need to add it to the application's main window. Open the
+`Views/MainWindow.xaml` file and edit it to have the following content:
+
+<div class="code-filename">Views/MainWindow.xaml</div>
+
+```xml
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="clr-namespace:Todo.Views"
+        x:Class="Todo.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Width="200" Height="300"
+        Title="Avalonia Todo">
+  <views:TodoListView/>
+</Window>
+```
+
+A lot of this is similar to the markup we've already seen, so lets just look at the interesting
+parts:
+
+```xml
+xmlns:views="clr-namespace:Todo.Views"
+```
+
+We want to display the `TodoListView` control we just created, which is in the `Todo.Views` C#
+namespace. Here we're mapping the `Todo.Views` namespace to the `views` XML namespace. Any control
+that is not a core Avalonia control will generally need this type of mapping in order for the XAML
+engine to find the control.
+
+```xml
+<views:TodoListView/>
+```
+
+Using the XML namespace we've just declared we now place the `TodoListView` control as the content
+of our `Window`.
+
+# Run the application
+
+If you now run the application (by pressing `F5` in Visual Studio or executing `dotnet run` in .NET
+Core) you should see the application running in all its glory:
+
+![The running application](images/creating-a-view-run.png)
