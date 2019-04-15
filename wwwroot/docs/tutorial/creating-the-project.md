@@ -4,21 +4,20 @@ Order: 10
 
 ## Visual Studio
 
-The easiest way to get started with Avalonia from Visual Studio is to [install the extension]
-(https://marketplace.visualstudio.com/items?itemName=AvaloniaTeam.AvaloniaforVisualStudio) from the
-Visual Studio Marketplace.
-
-Once that is installed, you can create an Avalonia MVVM application:
+The easiest way to get started with Avalonia from Visual Studio is to
+[install the extension](https://marketplace.visualstudio.com/items?itemName=AvaloniaTeam.AvaloniaforVisualStudio)
+from the Visual Studio Marketplace. Once that is installed, you can create an Avalonia MVVM application:
 
 ![New Project Dialog](images/new-project-dialog.png)
 
 - Start Visual Studio
-- Select File -> New -> Project
-- In the Avalonia section, select "Avalonia MVVM Application"
-- Enter "Todo" as the Name
-- Click OK
+- Select `File -> New -> Project` from the main menu
+- Search for "Avalonia" and select "Avalonia MVVM Application"
+- Click "Next"
+- Enter "Todo" as the Project name
+- Click "Create"
 
-> Note: ignore the "Framework" selection - it doesn't have any effect on this template.
+> Note: the "Framework" selection can be ignored here - it doesn't have any effect on this template.
 
 ## .NET Core
 
@@ -59,3 +58,7 @@ You can see there are directories for each of the concepts in the MVVM pattern (
 - The **App.xaml** file is where XAML styles and templates that will apply to the entire application will be placed.
 - The **Program.cs** file is the entry point for execution of the application. Here you can configure the platform options for Avalonia if necessary.
 - The **ViewLocator.cs** file is used to look up views for view models. This will be explained in more detail later.
+
+<a class="btn btn-primary" role="button" href="creating-the-models">
+    Next
+</a>

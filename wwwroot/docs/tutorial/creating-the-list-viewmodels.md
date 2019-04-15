@@ -4,7 +4,8 @@ Order: 30
 
 The next thing we want to do is display a list of the items read from the database. For this we're going to first need a view model which represents an item in the list. We'll call this `TodoItemViewModel`.
 
-`ViewModels\TodoItemViewModel.cs`:
+<div class="code-filename">ViewModels/TodoItemViewModel.cs</div>
+
 ```csharp
 using ReactiveUI;
 using Todo.Models;
@@ -49,10 +50,12 @@ There are two things to notice about the view model:
 - The property setters call `RaiseAndSetIfChanged`. This method handles updating the backing field and calling `PropertyChanged` if the value has changed.
 
 `INotifyPropertyChanged` is important to Avalonia because it is by listening to the event on this interface that the user interface knows that something in the view model has changed, and that the UI should be updated.
+For more information see [change notifications](/docs/bindings/change-notifications).
 
 Next we're going to need a view model which represents the list which we will call `TodoListViewModel`:
 
-`ViewModels\TodoListViewModel.cs`:
+<div class="code-filename">ViewModels/TodoListViewModel.cs</div>
+
 ```csharp
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -79,3 +82,7 @@ namespace Todo.ViewModels
 The list view model takes a collection of item models and for each one creates an item view model. It then puts these into an [`ObservableCollection<T>`](https://docs.microsoft.com/en-us/dotnet/api/system.collections.objectmodel.observablecollection-1?view=netframework-4.7.2) which is exposed via a property.
 
 > You may thinking at this point that having a model and a view model which are essentially the same sounds like a lot of hassle. At this point, that may be the case but as we build up the application you'll start to see the two concepts diverge.
+
+<a class="btn btn-primary" role="button" href="displaying-the-list">
+    Next
+</a>

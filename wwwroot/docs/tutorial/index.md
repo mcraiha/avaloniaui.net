@@ -1,4 +1,4 @@
-Title: Introduction
+Title: Tutorial
 Order: 0
 ---
 In this tutorial we're going to be creating a simple TODO application in Avalonia using the Model-View-ViewModel (MVVM) pattern.
@@ -25,3 +25,7 @@ MVVM, as its name suggests has three parts:
 In addition, most applications will add _services_ to this mix, which usually implement the reading and writing of models and other application-specific logic.
 
 > The implementation of these concepts are usually tightly coupled to to the particular application being written and as such are not usually designed to be reusable outside the application. If you want to write re-usable controls, then a Lookless Control might be a a better choice.
+
+<a class="btn btn-primary" role="button" href="creating-the-project">
+    Get started
+</a>

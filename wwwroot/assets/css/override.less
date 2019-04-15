@@ -61,3 +61,18 @@ blockquote {
     font-size: @font-size-small;
     border-left: 5px solid #eeeeee;
 }
+
+.code-filename {
+    background: darken(@brand-primary, 12%);
+    border-radius: 4px 4px 0 0;
+    color: #DCDCDC;
+    padding: 8px;
+    font-family: @font-family-monospace;
+    font-size: 12px;
+    display: inline-block;
+    margin: 30px 0 -2px 1px;
+  }
+
+  .code-filename + pre {
+      margin-top: 0;
+  }

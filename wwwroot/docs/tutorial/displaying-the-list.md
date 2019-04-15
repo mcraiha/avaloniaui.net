@@ -2,7 +2,7 @@ Title: Displaying the list
 Order: 40
 ---
 
-To display the list we'll need a view. Add an Avalonia `UserControl` to the `Views` directory called `TodoListView` by following these steps:
+To display the list we'll need a view to display the `TodoListViewModel`. Add an Avalonia `UserControl` to the `Views` directory called `TodoListView` by following these steps:
 
 - In **Visual Studio** right click the `Views` folder, and select "Add" -> "New Item" -> "Avalonia" -> "User Control" and give the control the name `TodoListView`
 - In **.NET core** run this command from directory that contains the `Views` directory:
@@ -13,7 +13,8 @@ dotnet new avalonia.usercontrol -o Views -n TodoListView
 
 Edit the `TodoListView.xaml` file to have the following content:
 
- `Views/TodoListView.xaml`:
+<div class="code-filename">Views/TodoListView.xaml</div>
+
  ```xml
  <UserControl xmlns="https://github.com/avaloniaui"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -28,17 +29,28 @@ Edit the `TodoListView.xaml` file to have the following content:
 </UserControl>
  ```
 
-In this view, we're displaying an [`ItemsControl`](/controls/itemscontrol) which has its `Items` property bound to the `TodoListViewModel.Items` property. The `ItemsControl` can is a very simple control which simply displays each item in the collection assigned to its `Items` property. Here each item will each be of type `TodoItemViewModel` as that's what `TodoListViewModel.Items` exposes.
+In this view, we're displaying an [`ItemsControl`](/controls/itemscontrol) which has its `Items` property bound to the `TodoListViewModel.Items` property:
 
-> How do we know that we're binding to a `TodoListViewModel` in `TodoListView`? Because Avalonia will handle this for us by setting the [`DataContext`](/docs/binding/datacontext). As long as you're not doing anything funky you can assume that the bindings in a view will be against the related view model. 
+```xml
+<ItemsControl Items="{Binding Items}">
+```
 
-How each item is displayed is controlled by the `ItemTemplate`: in this case we display each item as a `CheckBox`, with the check state bound to the `IsChecked` property of the `TodoItemViewModel` and the content bound to the `Description`.
+The `ItemsControl` is a very simple control which simply displays each item in the collection assigned to its `Items` property. Here each item will be of type `TodoItemViewModel` as that's what `TodoListViewModel.Items` exposes.
 
-> You'll notice here that the `CheckBox` is no longer binding to a `TodoListViewModel`, it's binding to a `TodoItemViewModel`. This is because the `ItemsControl` automatically sets the [`DataContext`](/docs/binding/datacontext) of each item to the view model that it represents.
+How each item is displayed is controlled by the `ItemTemplate`. The `ItemTemplate` takes a `DataTemplate` whose content is repeated for each item. In this case we display each item as a `CheckBox`, with the check state bound to the `IsChecked` property of the `TodoItemViewModel` and the content bound to the `Description`:
 
-We now need to update the `MainWindowViewModel` to display the list.
+```xml
+<ItemsControl.ItemTemplate>
+  <DataTemplate>
+    <CheckBox IsChecked="{Binding IsChecked}" Content="{Binding Description}"/>
+  </DataTemplate>
+</ItemsControl.ItemTemplate>
+```
 
-`ViewModels/MainWindowViewModel.cs`:
+We now need to update the `MainWindowViewModel` to display the list:
+
+<div class="code-filename">ViewModels/MainWindowViewModel.cs</div>
+
 ```csharp
 using ReactiveUI;
 using Todo.Services;
@@ -69,7 +81,8 @@ Here we've added a `Content` property to the `MainWindowViewModel` which will ex
 
 Finally we need to edit `MainWindow.xaml` to display the content:
 
-`Views/MainWindow.xaml`:
+<div class="code-filename">Views/MainWindow.xaml</div>
+
 ```xml
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -86,3 +99,7 @@ The important line here is `Content="{Binding Content}"`: we're binding the wind
 If you now run the application you should see each TODO item displayed as a `CheckBox`:
 
 ![Screenshot](images/displaying-the-list.png)
+
+<a class="btn btn-primary" role="button" href="adding-new-items">
+    Next
+</a>

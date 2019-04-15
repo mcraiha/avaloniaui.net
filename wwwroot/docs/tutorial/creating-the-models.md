@@ -4,7 +4,8 @@ Order: 20
 
 The first thing to do is to create the models which represent our data as it would be stored in a database. Our model is going to be pretty simple: each TODO item will consist of a textual description and a boolean value representing whether the item is checked.
 
-`Models/TodoItem.cs`:
+<div class="code-filename">Models/TodoItem.cs</div>
+
 ```csharp
 namespace Todo.Models
 {
@@ -18,7 +19,8 @@ namespace Todo.Models
 
  We're not actually going to be using a database for the sake of this example, we'll just populate our models from an array. We'll do this in a service called `Database` and put this in a `Services` directory:
 
-`Services/Database.cs`:
+<div class="code-filename">Services/Database.cs</div>
+
  ```csharp
 using System.Collections.Generic;
 using Todo.Models;
@@ -37,3 +39,7 @@ using Todo.Models;
  ```
 
  Usually if you're writing a CRUD application, this data would be read from a database using Entity Framework or a similar ORM, or it could be read from a a web API or a file etc.
+
+ <a class="btn btn-primary" role="button" href="creating-the-list-viewmodels">
+    Next
+</a>

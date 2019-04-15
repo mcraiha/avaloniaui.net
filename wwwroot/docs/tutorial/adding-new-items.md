@@ -4,7 +4,8 @@ Order: 50
 
 We now need a way to add new items. We'll start, as usual, by adding a view model. We're going to call this `EditTodoItemViewModel` as we'll later be using it to edit existing items too. We'll start of with a simple view model which just contains a `Description` property:
 
-`ViewModels/EditTodoItemViewModel.cs`:
+<div class="code-filename">ViewModels/EditTodoItemViewModel.cs</div>
+
 ```csharp
 using ReactiveUI;
 
@@ -25,7 +26,8 @@ namespace Todo.ViewModels
 
 The view will initially be pretty simple too: just a `TextBox` to allow input, with a watermark prompt and `AcceptsReturn="True"` which indicates a multi-line text box.
 
-`Views/EditTodoItemView.xaml`:
+<div class="code-filename">Views/EditTodoItemView.xaml</div>
+
 ```xml
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -38,7 +40,8 @@ The view will initially be pretty simple too: just a `TextBox` to allow input, w
 
 Next we need a way to navigate to the "new item" view. Lets do this by adding a [command](docs/binding/binding-to-commands) called `NewItem` to the Todo list:
 
-`ViewModels\TodoListViewModel.cs`:
+<div class="code-filename">ViewModels\TodoListViewModel.cs</div>
+
 ```csharp
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -68,7 +71,8 @@ Here we're using ReactiveUI's [`ReactiveCommand`](https://reactiveui.net/docs/ha
 You'll notice that we're passing an empty lambda to `ReactiveCommand.Create`, which means that when executed the command will not actually do anything. The reason for
 this is that we're going to subscribe to the command from `MainWindowViewModel`:
 
-`ViewModels/MainWindowViewModel.cs`:
+<div class="code-filename">ViewModels/MainWindowViewModel.cs</div>
+
 ```csharp
 using ReactiveUI;
 using Todo.Services;
@@ -107,7 +111,8 @@ We add a subscription to the `NewItem` command in the constructor, which calls t
 
 Finally we need to add a button to the list to invoke the command we just added:
 
-`Views/TodoListView.xaml`:
+<div class="code-filename">Views/TodoListView.xaml</div>
+
  ```xml
  <UserControl xmlns="https://github.com/avaloniaui"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
