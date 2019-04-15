@@ -1,5 +1,5 @@
 Title: ReactiveUI
-Order: 50
+Order: 60
 ---
 
 Avalonia ships its own fork of [ReactiveUI](https://reactiveui.net) in  `Avalonia.ReactiveUI`.

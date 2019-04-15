@@ -1,5 +1,5 @@
 Title: Binding from Code
-Order: 60
+Order: 50
 ---
 
 Binding from code in Avalonia works somewhat differently to WPF/UWP. At the low level, Avalonia's
@@ -25,7 +25,7 @@ subscribe to the property's changes.
 for this guide, but here's an example which uses the returned observable to
 print a message with the changing property values to the console:
 
-```c#
+```csharp
     var textBlock = new TextBlock();
     var text = textBlock.GetObservable(TextBlock.TextProperty);
     text.Subscribe(value => Console.WriteLine(value + " Changed"));
@@ -36,7 +36,7 @@ of the property immediately and then push a new value each time the property
 changes. If you don't want the current value, you can use the rx `Skip`
 operator:
 
-```c#
+```csharp
     var text = textBlock.GetObservable(TextBlock.TextProperty).Skip(1);
 ```
 
@@ -50,13 +50,20 @@ var source = new Subject<string>();
 var textBlock = new TextBlock();
 
 // Bind TextBlock.Text to source
-textBlock.Bind(TextBlock.TextProperty, source);
+var subscription = textBlock.Bind(TextBlock.TextProperty, source);
 
 // Set textBlock.Text to "hello"
 source.OnNext("hello");
 // Set textBlock.Text to "world!"
 source.OnNext("world!");
+
+// Terminate the binding
+subscription.Dispose();
 ```
+
+Notice that the `Bind` method returns an `IDisposable` which can be used to terminate the binding.
+If you never call this, then then binding will automatically terminate when the observable finishes
+via `OnCompleted` or `OnError`.
 
 # Setting a binding in an object initializer
 
@@ -89,6 +96,9 @@ Of course the indexer can be used outside object initializers too:
 ```csharp
 textBlock2[!TextBlock.TextProperty] = textBlock1[!TextBlock.TextProperty];
 ```
+
+The only downside of this syntax is that no `IDisposable` is returned. If you need to manually
+terminate the binding then you should use the `Bind` method.
 
 # Transforming binding values
 
@@ -123,6 +133,15 @@ var textBlock = new TextBlock
 {
     [!TextBlock.TextProperty] = new Binding("Name")
 };
+```
+
+Or, if you need an `IDisposable` to terminate the binding:
+
+```csharp
+var textBlock = new TextBlock();
+var subscription = textBlock.Bind(TextBlock.TextProperty, new Binding("Name"));
+
+subscription.Dispose();
 ```
 
 # Subscribing to a Property on Any Object

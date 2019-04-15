@@ -1,5 +1,5 @@
 Title: Styles
-Order: 0
+Order: 20
 ---
 Styles in Avalonia are used to share property settings between controls. The Avalonia styling
 system can be thought of as a mix of CSS styling and WPF/UWP styling. At its most basic, a

@@ -18,7 +18,7 @@ property to access it.
 
 Here's how the `Border` control defines its `Background` property:
 
-```c#
+```csharp
     public static readonly StyledProperty<Brush> BackgroundProperty =
         AvaloniaProperty.Register<Border, Brush>(nameof(Background));
 
@@ -52,7 +52,7 @@ control, `Background` being a good example. To register a property defined on
 another control, you call `StyledProperty.AddOwner`:
 
 
-```c#
+```csharp
     public static readonly StyledProperty<Brush> BackgroundProperty =
         Border.BackgroundProperty.AddOwner<Panel>();
 
@@ -71,7 +71,7 @@ another control, you call `StyledProperty.AddOwner`:
 To create a readonly property you use the `AvaloniaProperty.RegisterDirect`
 method. Here is how `Visual` registers the readonly `Bounds` property:
 
-```c#
+```csharp
     public static readonly DirectProperty<Visual, Rect> BoundsProperty =
         AvaloniaProperty.RegisterDirect<Visual, Rect>(
             nameof(Bounds),
@@ -99,7 +99,7 @@ are defined as static methods.
 
 Here's how `Grid` defines its `Grid.Column` attached property:
 
-```c#
+```csharp
     public static readonly AttachedProperty<int> ColumnProperty =
         AvaloniaProperty.RegisterAttached<Grid, Control, int>("Column");
 
@@ -128,7 +128,7 @@ unnecessary.
 
 Here is how `ItemsControl.Items` is registered:
 
-```c#
+```csharp
     public static readonly DirectProperty<ItemsControl, IEnumerable> ItemsProperty =
         AvaloniaProperty.RegisterDirect<ItemsControl, IEnumerable>(
             nameof(Items),
@@ -168,7 +168,7 @@ In the same way that you can call `AddOwner` on a styled property, you can also
 add an owner to a direct property. Because direct properties reference fields
 on the control, you must also add a field for the property:
 
-```c#
+```csharp
     public static readonly DirectProperty<MyControl, IEnumerable> ItemsProperty =
         ItemsControl.ItemsProperty.AddOwner<MyControl>(
             o => o.Items,
