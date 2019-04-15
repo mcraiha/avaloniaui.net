@@ -17,7 +17,7 @@ displays the control:
 </Window>
 ```
 
-<img class="doc-img" src="images/hello-world-button.png">
+![Hello World button](images/hello-world-button.png)
 
 Similarly if you put a string as the window content, the window will display the string:
 
@@ -28,7 +28,7 @@ Similarly if you put a string as the window content, the window will display the
 </Window>
 ```
 
-<img class="doc-img" src="images/hello-world-string.png">
+![Hello World string](images/hello-world-string.png)
 
 But what happens if you try to display an object as the window content?
 
@@ -57,7 +57,7 @@ namespace Example
 </Window>
 ```
 
-<img class="doc-img" src="images/student-no-datatemplate.png">
+![Student without DataTemplate](images/student-no-datatemplate.png)
 
 Not very helpful. That's because Avalonia doesn't know _how_ to display an object of type `Student` -
 because it's not a control it falls back to just calling `.ToString()` on the object. We can tell
@@ -87,7 +87,7 @@ set the [`ContentTemplate`](/api/Avalonia.Controls/ContentControl/7AA9343E) prop
 </Window>
 ```
 
-<img class="doc-img" src="images/student-first-last-name.png">
+![Student first and last name](images/student-first-last-name.png)
 
 The data template for the window content doesn't only come from the `ContentTemplate` property.
 Every control also has a `DataTemplates` collection into which any number of data templates can
@@ -179,7 +179,7 @@ in the `MainWindowViewModel.Content` property, the appropriate view will be disp
 <Window>
 ```
 
-## Evaluation Order
+# Evaluation Order
 
 Data templates in Avalonia can target interfaces and derived classes and so the order of
 DataTemplates can be important: DataTemplates within the same collection are evaluated in

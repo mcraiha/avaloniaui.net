@@ -1,7 +1,7 @@
 Title: Creating a new Avalonia Project
 Order: 0
 ---
-## Visual Studio
+# Visual Studio
 
 The easiest way to get started with Avalonia from Visual Studio is to [install the extension](https://marketplace.visualstudio.com/items?itemName=AvaloniaTeam.AvaloniaforVisualStudio) from the Visual Studio Marketplace.
 
@@ -10,7 +10,7 @@ Installing the extension will add a couple of project templates to Visual Studio
 - **Avalonia Application**: This will create a barebones Avalonia application
 - **Avalonia MVVM Application**: This will create an application that uses the Model-View-ViewModel pattern with [ReactiveUI](https://reactiveui.net/)
 
-<img class="screenshot-half" src="images/new-project-dialog.png">
+![New Project Dialog](images/new-project-dialog.png)
 
 By default these application templates will dual-target .NET Framework 4.6.1 and .NET Core 2.0.
 
@@ -19,7 +19,7 @@ Once you have an Avalonia application, two item templates will become available:
 - **Window**: Creates a new top-level [`Window`](../guides/controls/window.md)
 - **UserControl**: Create a new [`UserControl`](../guides/controls/usercontrol.md)
 
-## .NET Core
+# .NET Core
 
 First install the Avalonia templates for .NET Core by following the instructions [here](https://github.com/AvaloniaUI/avalonia-dotnet-templates).
 
