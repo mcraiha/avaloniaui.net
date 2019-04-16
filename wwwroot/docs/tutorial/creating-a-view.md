@@ -239,3 +239,7 @@ If you now run the application (by pressing `F5` in Visual Studio or executing `
 Core) you should see the application running in all its glory:
 
 ![The running application](images/creating-a-view-run.png)
+
+<a class="btn btn-primary" role="button" href="creating-model-viewmodel">
+    Next
+</a>

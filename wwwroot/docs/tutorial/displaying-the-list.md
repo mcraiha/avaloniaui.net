@@ -1,5 +1,5 @@
 Title: Displaying the list
-Order: 40
+Order: 140
 ---
 
 To display the list we'll need a view to display the `TodoListViewModel`. Add an Avalonia `UserControl` to the `Views` directory called `TodoListView` by following these steps:

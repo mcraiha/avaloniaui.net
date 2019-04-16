@@ -1,5 +1,5 @@
 Title: Creating the Models
-Order: 20
+Order: 200
 ---
 
 The first thing to do is to create the models which represent our data as it would be stored in a database. Our model is going to be pretty simple: each TODO item will consist of a textual description and a boolean value representing whether the item is checked.
