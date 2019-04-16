@@ -1,5 +1,5 @@
 Title: Adding new Items - Part 1
-Order: 50
+Order: 150
 ---
 
 We now need a way to add new items. We'll start, as usual, by adding a view model. We're going to call this `EditTodoItemViewModel` as we'll later be using it to edit existing items too. We'll start of with a simple view model which just contains a `Description` property:

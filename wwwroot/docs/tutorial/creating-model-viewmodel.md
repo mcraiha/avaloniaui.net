@@ -62,7 +62,7 @@ using Todo.Models;
         {
             new TodoItem { Description = "Walk the dog" },
             new TodoItem { Description = "Buy some milk" },
-            new TodoItem { Description = "Learn Avalonia" },
+            new TodoItem { Description = "Learn Avalonia", IsChecked = true },
         };
     }
 }
@@ -105,7 +105,7 @@ models in its constructor and puts them into an `ObservableCollection` which is 
 One thing to notice is the use of the `ViewModelBase` class. The importance of this will become
 clear shortly.
 
-# Creating an instance of TodoListViewModel
+# Create an instance of `TodoListViewModel`
 
 We've seen that our `TodoListViewModel` requires a collection of `TodoItem` models to be passed
 to its constructor, but where do these items come from? Where is `TodoListViewModel` created?

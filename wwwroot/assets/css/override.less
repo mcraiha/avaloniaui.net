@@ -19,12 +19,19 @@
     margin: 12px auto;
 }
 
-.disclaimer {
-    padding: 15px;
-    background-color: #bb2419;
-    color: white;
-    margin: 10px;
-    font-weight: bold;
+.note {
+    background-color: fade(@brand-info, 30%);
+    border-left-color: #ffe564;
+    border-left-width: 9px;
+    border-left-style: solid;
+    margin: 40px 0 30px 0;
+    padding: 1px 45px 20px 26px;
+}
+
+.note > p:first-child::before {
+    content: "Note";
+    display: block;
+    font-weight: 700;
 }
 
 .content a {
