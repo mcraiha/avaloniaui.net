@@ -20,14 +20,14 @@ We're going to create the `UserControl` from a template. Follow the instructions
 
 <div class="tab-content platform-choice clearfix">
   <div class="tab-pane active" id="vs">
-    <ol>
-      <li>Right click your project's "Views" folder in Solution Explorer
-      <li>Select the "Add" -> "New Item" menu item
-      <li>In the dialog that appears, navigate to the "Avalonia" section in the category tree
-      <li>Select "User Control (Avalonia)"
-      <li>Enter "TodoListView" as the "Name"
-      <li>Click the "Add" button
-    </ol>
+
+1. Right click your project's `Views` folder in Solution Explorer
+2. Select the `Add -> New Item` menu item
+3. In the dialog that appears, navigate to the "Avalonia" section in the category tree
+4. Select "User Control (Avalonia)"
+5. Enter `TodoListView` as the "Name"
+6. Click the "Add" button
+
   </div>
   <div class="tab-pane" id="netcore">
     Run this command from the root directory of your project (the directory that contains

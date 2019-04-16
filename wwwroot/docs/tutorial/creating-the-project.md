@@ -2,7 +2,13 @@ Title: Creating the Project
 Order: 10
 ---
 
-## Visual Studio
+<ul class="nav nav-tabs platform-choice">
+	<li class="active"><a  href="#vs" data-toggle="tab">Visual Studio</a></li>
+	<li><a href="#netcore" data-toggle="tab">.NET Core</a></li>
+</ul>
+
+<div class="tab-content platform-choice clearfix">
+  <div class="tab-pane active" id="vs">
 
 The easiest way to get started with Avalonia from Visual Studio is to
 [install the extension](https://marketplace.visualstudio.com/items?itemName=AvaloniaTeam.AvaloniaforVisualStudio)
@@ -10,16 +16,19 @@ from the Visual Studio Marketplace. Once that is installed, you can create an Av
 
 ![New Project Dialog](images/new-project-dialog.png)
 
-- Start Visual Studio
-- Select `File -> New -> Project` from the main menu
-- Search for "Avalonia" and select "Avalonia MVVM Application"
-- Click "Next"
-- Enter "Todo" as the Project name
-- Click "Create"
+1. Start Visual Studio
+2. Select "Create a new project" from the start window or `File -> New -> Project` from the main menu
+3. Search for "Avalonia" and select "Avalonia MVVM Application"
+4. Click "Next"
+5. Enter "Todo" as the Project name
+6. Click "Create"
 
-> Note: the "Framework" selection can be ignored here - it doesn't have any effect on this template.
+:::note
+The "Framework" selection can be ignored here - it doesn't have any effect on this template.
+:::
 
-## .NET Core
+  </div>
+  <div class="tab-pane" id="netcore">
 
 First install the Avalonia templates for .NET Core by following the instructions
 [here](https://github.com/AvaloniaUI/avalonia-dotnet-templates).
@@ -29,6 +38,11 @@ Now you can create the application from the template:
 ```powershell
 dotnet new avalonia.app.mvvm -o Todo -n Todo
 ```
+
+  </div>
+</div>
+
+
 
 ## Project structure
 
