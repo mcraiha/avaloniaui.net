@@ -5,8 +5,9 @@ Order: 50
 Hold on, rewind a second. An observant reader will have noticed something strange going on
 [in the last section](/docs/tutorial/wiring-up-views#update-mainwindow).
 
-<div class="code-filename">Views/MainWindow.xaml</div>
-
+:::filename
+Views/MainWindow.xaml
+:::
 ```xml{8}
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -24,8 +25,9 @@ here? How is a view being displayed when the window content is a view model?
 
 The answer can be found in `ViewLocator.cs` which was a file added by the template:
 
-<div class="code-filename">Views/MainWindow.xaml</div>
-
+:::filename
+Views/MainWindow.xaml
+:::
 ```csharp
 using System;
 using Avalonia.Controls;

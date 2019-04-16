@@ -25,8 +25,9 @@ description and a boolean value representing whether the item is checked.
 
 Place the following class in the `Models` directory in your project:
 
-<div class="code-filename">Models/TodoItem.cs</div>
-
+:::filename
+Models/TodoItem.cs
+:::
 ```csharp
 namespace Todo.Models
 {
@@ -48,8 +49,9 @@ models from an array.
 
 We'll do this in a service called `Database` and put this in a `Services` directory:
 
-<div class="code-filename">Services/Database.cs</div>
-
+:::filename
+Services/Database.cs
+:::
  ```csharp
 using System.Collections.Generic;
 using Todo.Models;
@@ -77,8 +79,9 @@ We have already created the view and called it `TodoListView` and so the associa
 going to be called `TodoListViewModel`. Place this class in the `ViewModels` directory in your
 project:
 
-<div class="code-filename">ViewModels/TodoListViewModel.cs</div>
-
+:::filename
+ViewModels/TodoListViewModel.cs
+:::
 ```csharp
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -123,8 +126,9 @@ relationship (`TodoListView` is a child of `MainWindow`). This might give us a c
 
 Edit the `MainWindowViewModel.cs` file to look like this:
 
-<div class="code-filename">ViewModels/MainWindowViewModel.cs</div>
-
+:::filename
+ViewModels/MainWindowViewModel.cs
+:::
 ```csharp
 using Todo.Services;
 

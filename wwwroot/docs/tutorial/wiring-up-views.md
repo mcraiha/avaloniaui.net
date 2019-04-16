@@ -10,9 +10,10 @@ do this by making use of Avalonia's [data binding](/docs/binding) feature.
 We're exposing the list in `MainWindowViewModel.List` so let's use that property to display the
 list in `MainWindow.xaml`.
 
-<div class="code-filename">Views/MainWindow.xaml</div>
-
-```xml{8}
+:::filename
+div class="code-filename">Views/MainWindow.xaml
+:::
+```xml
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="Todo.Views.MainWindow"
@@ -56,8 +57,9 @@ Is _exactly_ the same as writing:
 
 Now we need to make `TodoListView` get the list of TODO items from the view model:
 
-<div class="code-filename">Views/TodoListView.xaml</div>
-
+:::filename
+Views/TodoListView.xaml
+:::
 ```xml
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
