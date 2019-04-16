@@ -5,16 +5,18 @@ In this tutorial we're going to be creating a simple TODO application in Avaloni
 
 The finished application will look like this:
 
-TODO
+![The running application](images/wiring-up-views-run.png)
 
-You can find the code for the completed application [here](todo). 
+You can find the code for the completed application [here](https://github.com/grokys/todo-tutorial). 
 
 ## Model-View-ViewModel (MVVM)
 
 The Model-View-ViewModel pattern (MVVM) is a common pattern used for writing GUI applications, and is the recommended pattern to use when writing Avalonia applications. We'll be assuming a [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) application here, but most of
 these concepts can be applied to all types of applications.
 
-> For this guide we're going to be using [ReactiveU](https://reactiveui.net/) which is a MVVM framework based on [.NET Reactive Extensions](http://reactivex.io/). This guide will explain how to use MVVM and ReactiveUI with Avalonia but you can also see the [ReactiveUI documentation](https://reactiveui.net/docs/) for more detailed information.
+:::note
+For this guide we're going to be using [ReactiveU](https://reactiveui.net/) which is a MVVM framework based on [.NET Reactive Extensions](http://reactivex.io/). This guide will explain how to use MVVM and ReactiveUI with Avalonia but you can also see the [ReactiveUI documentation](https://reactiveui.net/docs/) for more detailed information.
+:::
 
 MVVM, as its name suggests has three parts:
 
@@ -24,7 +26,9 @@ MVVM, as its name suggests has three parts:
 
 In addition, most applications will add _services_ to this mix, which usually implement the reading and writing of models and other application-specific logic.
 
-> The implementation of these concepts are usually tightly coupled to to the particular application being written and as such are not usually designed to be reusable outside the application. If you want to write re-usable controls, then a Lookless Control might be a a better choice.
+:::note
+The implementation of these concepts are usually tightly coupled to to the particular application being written and as such are not usually designed to be reusable outside the application. If you want to write re-usable controls, then a Lookless Control might be a a better choice.
+:::
 
 <a class="btn btn-primary" role="button" href="creating-the-project">
     Get started
