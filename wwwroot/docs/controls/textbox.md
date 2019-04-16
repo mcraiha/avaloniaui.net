@@ -1,6 +1,6 @@
 Title: Textbox
 ---
-The `TextBox` is editable text field where user can input text.
+TThe `TextBox` control is an editable text field where a user can input text.
 
 # Source code
 [TextBox.cs](https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Controls/TextBox.cs)
@@ -22,7 +22,7 @@ The `TextBox` is editable text field where user can input text.
 	</StackPanel>
 </Window>
 ```
-produces following output with **Windows 10**  
+produces the following output in **Windows 10**  
 ![Basic TextBox](images/textbox_basic.png)
 
 ## Password input TextBox
@@ -40,12 +40,12 @@ produces following output with **Windows 10**
 	</StackPanel>
 </Window>
 ```
-produces following output with **Windows 10** when text is type to input  
+produces the following output in **Windows 10** when text is input  
 ![Password TextBox](images/textbox_password.png)
 
 ## TextBox with watermark
 
-With Avalonia and WPF text suggestion that textbox shows is called watermark, but e.g. HTML5 calls it *placeholder*
+Avalonia can show a "watermark" in a `TextBox`, which is a piece of text that is displayed when the `TextBox` is empty (in HTML5 this is called a *placeholder*)
 
 ```xml
 <Window xmlns="https://github.com/avaloniaui"
@@ -60,8 +60,8 @@ With Avalonia and WPF text suggestion that textbox shows is called watermark, bu
 	</StackPanel>
 </Window>
 ```
-produces following output with **Windows 10**  
-![Password TextBox](images/textbox_watermark.png)
+produces the following output in **Windows 10**   
+![Watermark TextBox](images/textbox_watermark.png)
 
 ## Multiline TextBox
 
@@ -78,5 +78,5 @@ produces following output with **Windows 10**
 	</Grid>
 </Window>
 ```
-produces following output with **Windows 10** when text is type to input  
+produces the following output in **Windows 10** when text is input  
 ![Multiline TextBox](images/textbox_multiline.png)
