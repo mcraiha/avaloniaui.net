@@ -104,3 +104,7 @@ implementing the
 [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)
 paradigm.
 :::
+
+<a class="btn btn-primary" role="button" href="adding-new-items">
+    Next
+</a>

@@ -11,7 +11,7 @@ We're exposing the list in `MainWindowViewModel.List` so let's use that property
 list in `MainWindow.xaml`.
 
 :::filename
-div class="code-filename">Views/MainWindow.xaml
+Views/MainWindow.xaml
 :::
 ```xml
 <Window xmlns="https://github.com/avaloniaui"

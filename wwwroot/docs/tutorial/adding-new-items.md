@@ -1,78 +1,72 @@
-Title: Adding new Items - Part 1
-Order: 150
+Title: Adding new Items
+Order: 60
 ---
 
-We now need a way to add new items. We'll start, as usual, by adding a view model. We're going to call this `EditTodoItemViewModel` as we'll later be using it to edit existing items too. We'll start of with a simple view model which just contains a `Description` property:
+When we originally created the `TodoListView` we added an "Add an item" button. It's time now to
+make that button do something. When the button is clicked we want to replace the list of items with
+a new view which will allow the user to enter the description of a new item.
+
+# Create the view
+
+We start by creating the view
+(see [here](http://localhost:5080/docs/tutorial/creating-a-view#create-the-usercontrol)
+for a refresher on how to create a `UserControl` using a template):
 
 :::filename
-ViewModels/EditTodoItemViewModel.cs
-:::
-```csharp
-using ReactiveUI;
-
-namespace Todo.ViewModels
-{
-    public class EditTodoItemViewModel : ViewModelBase
-    {
-        string description;
-
-        public string Description
-        {
-            get => description;
-            set => this.RaiseAndSetIfChanged(ref description, value);
-        }
-    }
-}
-```
-
-The view will initially be pretty simple too: just a `TextBox` to allow input, with a watermark prompt and `AcceptsReturn="True"` which indicates a multi-line text box.
-
-:::filename
-Views/EditTodoItemView.xaml
+Views/AddItemView.xaml
 :::
 ```xml
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="Todo.Views.EditTodoItemView">
-    <TextBox Text="{Binding Description}"
-             AcceptsReturn="True"
-             Watermark="Enter your task here."/>
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="200" d:DesignHeight="300"
+             x:Class="Todo.Views.AddItemView">
+  <DockPanel>
+    <Button DockPanel.Dock="Bottom">Cancel</Button>
+    <Button DockPanel.Dock="Bottom">OK</Button>
+    <TextBox AcceptsReturn="True"
+             Text="{Binding Description}"
+             Watermark="Enter your TODO"/>
+  </DockPanel>
 </UserControl>
 ```
 
-Next we need a way to navigate to the "new item" view. Lets do this by adding a [command](docs/binding/binding-to-commands) called `NewItem` to the Todo list:
+This gives us a view which looks like this:
+
+![The view](images/adding-new-items-view.png)
+
+The only new thing here is the `<TextBox>` control which is a control that allows a user to input
+text. We set three properties on it:
+
+- `AcceptsReturn` creates a multi-line `TextBox`
+- `Text` binds the text that is displayed in the `TextBox` to the `Description` property on the
+  view model
+- `Watermark` causes a placeholder to be displayed when the `TextBox` is empty
+
+# Create the view model
+
+Our view model is going to start out _extremely_ simple. We're just going to provide the
+`Description` property that the `TextBox` is bound to for starters. We'll add to this as we go
+along.
 
 :::filename
-ViewModels\TodoListViewModel.cs
+ViewModels\AddItemViewModel.cs
 :::
 ```csharp
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Reactive;
-using ReactiveUI;
-using Todo.Models;
-
 namespace Todo.ViewModels
 {
-    public class TodoListViewModel : ViewModelBase
+    class AddItemViewModel : ViewModelBase
     {
-        public TodoListViewModel(IEnumerable<TodoItem> items)
-        {
-            var viewModels = items.Select(x => new TodoItemViewModel(x));
-            Items = new ObservableCollection<TodoItemViewModel>(viewModels);
-            NewItem = ReactiveCommand.Create(() => { }); // <--- Command initialization
-        }
-
-        public ObservableCollection<TodoItemViewModel> Items { get; }
-        public ReactiveCommand<Unit, Unit> NewItem { get; } // <--- Command declaration
+        public string Description { get; set; }
     }
 }
 ```
 
-Here we're using ReactiveUI's [`ReactiveCommand`](https://reactiveui.net/docs/handbook/commands/) to create a command, and we assign that command to a public property.
-You'll notice that we're passing an empty lambda to `ReactiveCommand.Create`, which means that when executed the command will not actually do anything. The reason for
-this is that we're going to subscribe to the command from `MainWindowViewModel`:
+# Swap out the list view model
+
+When we click the "Add an item" button, we want to stop showing the `TodoListView` in the window
+and show the `AddItemView`. We can alter the `MainWindowViewModel` to let us do this:
 
 :::filename
 ViewModels/MainWindowViewModel.cs
@@ -83,65 +77,106 @@ using Todo.Services;
 
 namespace Todo.ViewModels
 {
-    public class MainWindowViewModel : ViewModelBase
+    class MainWindowViewModel : ViewModelBase
     {
-        object content;
+        ViewModelBase content;
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(Database db)
         {
-            var database = new Database();
-            var items = database.GetItems();
-            var list = new TodoListViewModel(items);
-            list.NewItem.Subscribe(_ => NewItem()); // <--- Subscribe to the command
-            content = list;
+            Content = List = new TodoListViewModel(db.GetItems());
         }
 
-        public object Content
+        public ViewModelBase Content
         {
             get => content;
             private set => this.RaiseAndSetIfChanged(ref content, value);
         }
 
-        void NewItem()
+        public TodoListViewModel List { get; }
+
+        public void AddItem()
         {
-            Content = new EditTodoItemViewModel();
+            Content = new AddItemViewModel();
         }
     }
 }
+
 ```
 
-We add a subscription to the `NewItem` command in the constructor, which calls the `NewItem` method. In the `NewItem` method we set the `Content` to a new instance of
-`EditTodoItemViewModel`.
+Here we add a `Content` property which is initially set to our list view model. When the `AddItem()`
+method is called, we assign an `AddItemViewModel` to the `Content` property.
 
-Finally we need to add a button to the list to invoke the command we just added:
+The `Content` property setter calls `RaiseAndSetIfChanged` which will cause 
+[a change notification](/docs/binding/change-notification) to be fired each time the property
+changes value. Avalonia's binding system needs change notifications in order to know when to update
+the user-interface in response to a property change.
+
+We now want to bind our `Window.Content` property to this new `Content` property instead of the
+`List` property that it is currently bound to:
+
+:::filename
+Views/MainWindow.xaml
+:::
+```xml{7}
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Todo.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Width="200" Height="300"
+        Title="Avalonia Todo"
+        Content="{Binding Content}">
+</Window>
+```
+
+And finally we need to make the "Add an item" button call `MainWindowViewModel.AddItem()`.
 
 :::filename
 Views/TodoListView.xaml
 :::
- ```xml
- <UserControl xmlns="https://github.com/avaloniaui"
-              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-              x:Class="Todo.Views.TodoListView">
-    <!-- Add a containing DockPanel -->
-    <DockPanel>
-        <!-- Add a button and bind it to the `NewItem` command -->
-        <Button DockPanel.Dock="Bottom" Command="{Binding NewItem}">
-            Add New
-        </Button>
-
-        <ItemsControl Items="{Binding Items}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <CheckBox IsChecked="{Binding IsChecked}" Content="{Binding Description}"/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    </DockPanel>
+```xml{9}
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="200" d:DesignHeight="300"
+             x:Class="Todo.Views.TodoListView">
+  <DockPanel>
+    <Button DockPanel.Dock="Bottom"
+            Command="{Binding $parent[Window].DataContext.AddItem}">
+      Add an item
+    </Button>
+    <ItemsControl Items="{Binding Items}">
+      <ItemsControl.ItemTemplate>
+        <DataTemplate>
+          <CheckBox Margin="4"
+                    IsChecked="{Binding IsChecked}"
+                    Content="{Binding Description}"/>
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
+  </DockPanel>
 </UserControl>
- ```
+```
 
- First we place a `DockPanel` around the existing `ItemsControl`. A `UserControl` can contain only a single child, so if we want to have more than once children we need
- to use a `Panel`. `DockPanel` is a panel which will let us easily position the button at the bottom of the view by setting `DockPanel.Dock="Bottom"`. The button's 
- `Command` property is then bound to the `NewItem` command on the `TodoListViewModel` that we added earlier.
+The binding we've added to `<Button>` is:
 
- If you now run the application and click the "Add New" button, you should now see the `EditTodoView` displayed!
+```xml
+Command="{Binding $parent[Window].DataContext.AddItem}"
+```
+
+There are a few parts to this:
+
+- The `Button.Command` property describes a command to be called when the button is clicked
+- We're binding it to `$parent[Window].DataContext.AddItem`:
+  - `$parent[Window]` means find an ancestor control of type `Window`
+  - And get its `DataContext` (i.e. a `MainWindowViewModel`)
+  - And bind to the `AddItem` method
+
+And so this will cause the `MainWindowViewModel.AddItem()` method to be invoked when the button is
+clicked.
+
+:::note
+If you're familiar with WPF or UWP you may think it strange that we're binding `Button.Command` to
+a method. This is a convenience feature of Avalonia which means that you don't have to create an
+`ICommand` for simple commands that are always enabled.
+:::
