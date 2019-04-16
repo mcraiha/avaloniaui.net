@@ -1,4 +1,4 @@
-Title: Adding new Items
+Title: Adding new Items - Part I
 Order: 60
 ---
 
@@ -9,7 +9,7 @@ a new view which will allow the user to enter the description of a new item.
 # Create the view
 
 We start by creating the view
-(see [here](http://localhost:5080/docs/tutorial/creating-a-view#create-the-usercontrol)
+(see [here](/docs/tutorial/creating-a-view#create-the-usercontrol)
 for a refresher on how to create a `UserControl` using a template):
 
 :::filename
@@ -169,10 +169,10 @@ There are a few parts to this:
 - The `Button.Command` property describes a command to be called when the button is clicked
 - We're binding it to `$parent[Window].DataContext.AddItem`:
   - `$parent[Window]` means find an ancestor control of type `Window`
-  - And get its `DataContext` (i.e. a `MainWindowViewModel`)
-  - And bind to the `AddItem` method
+  - And get its `DataContext` (i.e. a `MainWindowViewModel` in this case)
+  - And bind to the `AddItem` method on that view model
 
-And so this will cause the `MainWindowViewModel.AddItem()` method to be invoked when the button is
+This will cause the `MainWindowViewModel.AddItem()` method to be invoked when the button is 
 clicked.
 
 :::note
@@ -180,3 +180,13 @@ If you're familiar with WPF or UWP you may think it strange that we're binding `
 a method. This is a convenience feature of Avalonia which means that you don't have to create an
 `ICommand` for simple commands that are always enabled.
 :::
+
+# Run the application
+
+If you now run the application and click the "Add an item" button you should see the new view appear.
+
+![The running application](images/adding-new-item-run.gif)
+
+<a class="btn btn-primary" role="button" href="adding-new-items-2">
+    Next
+</a>

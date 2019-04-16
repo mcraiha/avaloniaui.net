@@ -15,7 +15,7 @@ The Model-View-ViewModel pattern (MVVM) is a common pattern used for writing GUI
 these concepts can be applied to all types of applications.
 
 :::note
-For this guide we're going to be using [ReactiveU](https://reactiveui.net/) which is a MVVM framework based on [.NET Reactive Extensions](http://reactivex.io/). This guide will explain how to use MVVM and ReactiveUI with Avalonia but you can also see the [ReactiveUI documentation](https://reactiveui.net/docs/) for more detailed information.
+For this guide we're going to be using [ReactiveUI](https://reactiveui.net/) which is a MVVM framework based on [.NET Reactive Extensions](http://reactivex.io/). This guide will explain how to use MVVM and ReactiveUI with Avalonia but you can also see the [ReactiveUI documentation](https://reactiveui.net/docs/) for more detailed information.
 :::
 
 MVVM, as its name suggests has three parts:
