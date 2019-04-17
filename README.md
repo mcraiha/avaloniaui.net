@@ -7,7 +7,7 @@
 3. Clone the repository and descend into repository root folder.
 4. Use the command `wyam -i wwwroot` to build the website.
 
-# View Built Artifacts
+# View Build Artifacts
 
 Use `wyam preview` to view what's built, or double-click `serve.cmd`.
 
