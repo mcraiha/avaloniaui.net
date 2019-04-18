@@ -121,7 +121,7 @@ namespace RoutingExample
 
 **MainWindow.xaml**
 
-Now we need to place the `RoutedViewHost` XAML control to our main view. It will resolve and embedd appropriate views for the view models. Note, that you need to import `rxui` namespace for `RoutedViewHost` to work. 
+Now we need to place the `RoutedViewHost` XAML control to our main view. It will resolve and embedd appropriate views for the view models. Note, that you need to import `rxui` namespace for `RoutedViewHost` to work. Additionally, you can override animations that are played when `RoutedViewHost` changes a view — simply override `RoutedViewHost.FadeInAnimation` and `RoutedViewHost.FadeOutAnimation` properties in XAML.
 
 > **Important** For latest versions from MyGet use `xmlns:rxui="http://reactiveui.net"`, for 0.8.0 release on NuGet use `xmlns:rxui="clr-namespace:Avalonia;assembly=Avalonia.ReactiveUI"` as in the example below.
 
@@ -139,7 +139,13 @@ Now we need to place the `RoutedViewHost` XAML control to our main view. It will
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <rxui:RoutedViewHost Grid.Row="0" Router="{Binding Router}"/>
+        <rxui:RoutedViewHost Grid.Row="0" Router="{Binding Router}">
+            <rxui:RoutedViewHost.DefaultContent>
+                <TextBlock Text="Default content"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center" />
+            </rxui:RoutedViewHost.DefaultContent>
+        </rxui:RoutedViewHost>
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="15">
             <Button Content="Go next" Command="{Binding GoNext}" />
             <Button Content="Go back" Command="{Binding GoBack}" />
