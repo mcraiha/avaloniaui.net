@@ -1,0 +1,33 @@
+Title: ReactiveUI
+Order: 10
+---
+[ReactiveUI](https://reactiveui.net) is an advanced, composable, functional reactive model-view-viewmodel framework for all .NET platforms that is inspired by functional reactive programming. Avalonia ships its own fork of [ReactiveUI](https://reactiveui.net) in  `Avalonia.ReactiveUI` NuGet package. To use ReactiveUI integration and the [MVVM Pattern](https://msdn.microsoft.com/en-us/library/hh848246.aspx) in your Avalonia solutions, add the package to your project via NuGet package manager GUI or execute the following command:
+
+```sh
+dotnet add package Avalonia.ReactiveUI
+```
+
+`Avalonia.ReactiveUI` includes Avalonia-specific helpers to handle [view model -based routing](https://reactiveui.net/docs/handbook/routing), [view activation](https://reactiveui.net/docs/handbook/when-activated/) and [scheduling](https://reactiveui.net/docs/handbook/scheduling/). Be sure to add `.UseReactiveUI()` to your AppBuilder before you use any of reactive APIs in your application.
+
+```csharp
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        AppBuilder
+            .Configure<App>()
+            .UsePlatformDetect()
+            // Add the line below to enable
+            // ReactiveUI support in your app.
+            .UseReactiveUI()
+            .LogToDebug()
+            .Start<MainWindow>();
+    }
+}
+```
+
+To get started with ReactiveUI, see the [Getting Started](https://reactiveui.net/docs/getting-started/) guide and [Building ToDo List App](/docs/tutorial/) tutorial. See also [ReactiveUI Handbook](https://reactiveui.net/docs/handbook/) describing advanced ReactiveUI features allowing you to build complex and scalable applications with ReactiveUI. See the pages below to learn how to handle view activation and how to use routing in your Avalonia applications.
+
+<div>
+  @@Html.Partial("_ChildPages")
+</div>
