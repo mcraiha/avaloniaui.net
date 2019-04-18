@@ -127,7 +127,7 @@ Now we need to place the `RoutedViewHost` XAML control to our main view. It will
 
 ```xml
 <Window xmlns="https://github.com/avaloniaui"
-        `xmlns:rxui="clr-namespace:Avalonia;assembly=Avalonia.ReactiveUI"`
+        xmlns:rxui="clr-namespace:Avalonia;assembly=Avalonia.ReactiveUI"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -205,3 +205,5 @@ Now, you can run the app and see routing in action!
 ```sh
 dotnet run --framework netcoreapp2.1
 ```
+
+<img src="/images/routing-kde.gif">
