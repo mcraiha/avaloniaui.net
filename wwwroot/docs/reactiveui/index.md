@@ -1,5 +1,5 @@
 Title: ReactiveUI
-Order: 10
+Order: 70
 ---
 [ReactiveUI](https://reactiveui.net) is an advanced, composable, functional reactive model-view-viewmodel framework for all .NET platforms that is inspired by functional reactive programming. Avalonia ships its own fork of [ReactiveUI](https://reactiveui.net) in the `Avalonia.ReactiveUI` NuGet package. To use ReactiveUI and the the [MVVM Pattern](https://msdn.microsoft.com/en-us/library/hh848246.aspx) in your Avalonia solutions, add the package to your project via NuGet package manager GUI or execute the following command:
 

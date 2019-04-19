@@ -1,7 +1,6 @@
 Title: View Activation
-Order: 0
 ---
-For [WhenActivated](https://reactiveui.net/docs/handbook/when-activated/) ReactiveUI feature to work, you need to use custom base classes from the `Avalonia.ReactiveUI` package, such as `ReactiveWindow<TViewModel>` or `ReactiveUserControl<TViewModel>`. Of course, you can also implement the `IViewFor<TViewModel>` interface by hand in your class, but ensure to store the `ViewModel` in an `AvaloniaProperty`. [Activation and deactivation](https://reactiveui.net/docs/handbook/when-activated/) feature will work for your view model only in case you put an empty `WhenActivated` block right before a call to  `AvaloniaXamlRenderer.Load(this)`.
+For the [WhenActivated](https://reactiveui.net/docs/handbook/when-activated/) ReactiveUI feature to work, you need to use custom base classes from the `Avalonia.ReactiveUI` package, such as `ReactiveWindow<TViewModel>` or `ReactiveUserControl<TViewModel>`. Of course, you can also implement the `IViewFor<TViewModel>` interface by hand in your class, but make sure you store the `ViewModel` in an `AvaloniaProperty`.
 
 # Activation Example
 
@@ -43,7 +42,7 @@ This is the UI for the view model you see above.
 
 **View.xaml.cs**
 
-This is the code-behind for the `View.xaml` file you see above. Remember to always put a call to `WhenActivated` into your View constructor, otherwise the framework won't be able to determine when the view model gets activated.
+This is the code-behind for the `View.xaml` file you see above. Remember to always put a call to `WhenActivated` into your View constructor, otherwise ReactiveUI won't be able to determine when the view model gets activated.
 
 ```cs
 public partial class View : ReactiveWindow<ViewModel>
@@ -83,7 +82,3 @@ public partial class View : ReactiveWindow<ViewModel>
     }
 }
 ```
-
-<a class="btn btn-primary" role="button" href="index">
-    Back
-</a>
