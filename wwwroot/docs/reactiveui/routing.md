@@ -99,10 +99,6 @@ namespace RoutingExample
             // view models, so we need to register our views
             // using Locator.CurrentMutable.Register* methods.
             //
-            // Instead of registering views manually, you 
-            // can use custom IViewLocator implementation,
-            // see "View Location" section for details.
-            //
             Locator.CurrentMutable.Register(() => new FirstView(), typeof(IViewFor<FirstViewModel>));
 
             // Manage the routing state. Use the Router.Navigate.Execute
@@ -122,6 +118,10 @@ namespace RoutingExample
     }
 }
 ```
+
+:::note
+Instead of registering views manually, you can use custom `IViewLocator` implementation, or `Locator.RegisterViewsForViewModels` method which registers all reactive views from an assembly. See [View Location](https://reactiveui.net/docs/handbook/view-location/) for details.
+:::
 
 **MainWindow.xaml**
 
