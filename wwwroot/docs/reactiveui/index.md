@@ -27,7 +27,7 @@ public static class Program
 }
 ```
 
-To get started with ReactiveUI, see the [Getting Started](https://reactiveui.net/docs/getting-started/) guide and [Building ToDo List App](/docs/tutorial/) tutorial. See also [ReactiveUI Handbook](https://reactiveui.net/docs/handbook/) describing advanced ReactiveUI features allowing you to build complex and scalable applications with ReactiveUI. See the pages below to learn how to handle view activation and how to use routing in your Avalonia applications.
+To get started with ReactiveUI, see the [Getting Started](https://reactiveui.net/docs/getting-started/) guide and the [tutorial](/docs/tutorial/). See also the [ReactiveUI Handbook](https://reactiveui.net/docs/handbook/) which describes advanced ReactiveUI features allowing you to build complex and scalable applications with ReactiveUI. See the pages below to learn how to handle view activation and how to use routing in your Avalonia applications.
 
 <div>
   @@Html.Partial("_ChildPages")
