@@ -153,10 +153,17 @@ For latest versions from MyGet use `xmlns:rxui="http://reactiveui.net"`, for 0.8
             </rxui:RoutedViewHost.DefaultContent>
         </rxui:RoutedViewHost>
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="15">
+            <StackPanel.Styles>
+                <Style Selector="StackPanel > :is(Control)">
+                    <Setter Property="Margin" Value="2"/>
+                </Style>
+                <Style Selector="StackPanel > TextBlock">
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+            </StackPanel.Styles>
             <Button Content="Go next" Command="{Binding GoNext}" />
             <Button Content="Go back" Command="{Binding GoBack}" />
-            <TextBlock Text="{Binding Router.NavigationStack.Count}"
-                       VerticalAlignment="Center" Margin="5 0" />
+            <TextBlock Text="{Binding Router.NavigationStack.Count}" />
         </StackPanel>
     </Grid>
 </Window>
