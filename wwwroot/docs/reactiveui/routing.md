@@ -5,7 +5,7 @@ Order: 0
 
 # Routing Example
 
-First, create a new empty project from Avalonia templates. To use those, clone the [avalonia-dotnet-templates](https://github.com/AvaloniaUI/avalonia-dotnet-templates) repository, install the templates and create a new project named `RoutingExample` based on `avalonia.app` template. Install `Avalonia.ReactiveUI` package into the project.
+Create a new empty project from Avalonia templates. To use those, clone the [avalonia-dotnet-templates](https://github.com/AvaloniaUI/avalonia-dotnet-templates) repository, install the templates and create a new project named `RoutingExample` based on `avalonia.app` template. Install `Avalonia.ReactiveUI` package into the project.
 
 ```sh
 git clone https://github.com/AvaloniaUI/avalonia-dotnet-templates
@@ -17,7 +17,7 @@ dotnet add package Avalonia.ReactiveUI
 
 **FirstViewModel.cs**
 
-First, we create routable view models and corresponding views. We derive routable view models from the `IRoutableViewModel` interface from `ReactiveUI` namespace, and from `ReactiveObject` as well. `ReactiveObject` is the base class for [view model classes](https://reactiveui.net/docs/handbook/view-models/), and it implements `INotifyPropertyChanged`.
+First, create routable view models and corresponding views. We derive routable view models from the `IRoutableViewModel` interface from `ReactiveUI` namespace, and from `ReactiveObject` as well. `ReactiveObject` is the base class for [view model classes](https://reactiveui.net/docs/handbook/view-models/), and it implements `INotifyPropertyChanged`.
 
 ```cs
 namespace RoutingExample
@@ -69,7 +69,9 @@ namespace RoutingExample
 
 Then, create a view model implementing the `IScreen` interface. It contains current `RoutingState` that manages the navigation stack. `RoutingState` also contains helper commands allowing you to navigate back and forward.
 
-> **Note** Actually, you can use as many `IScreen`s as you need in your application. Despite the name, it doesn't have to occupy the whole screen. You can use nested routing, place `IScreen`s side-by-side, etc.
+:::note
+Actually, you can use as many `IScreen`s as you need in your application. Despite the name, it doesn't have to occupy the whole screen. You can use nested routing, place `IScreen`s side-by-side, etc.
+:::
 
 ```cs
 namespace RoutingExample
@@ -123,7 +125,9 @@ namespace RoutingExample
 
 Now we need to place the `RoutedViewHost` XAML control to our main view. It will resolve and embedd appropriate views for the view models. Note, that you need to import `rxui` namespace for `RoutedViewHost` to work. Additionally, you can override animations that are played when `RoutedViewHost` changes a view — simply override `RoutedViewHost.FadeInAnimation` and `RoutedViewHost.FadeOutAnimation` properties in XAML.
 
-> **Important** For latest versions from MyGet use `xmlns:rxui="http://reactiveui.net"`, for 0.8.0 release on NuGet use `xmlns:rxui="clr-namespace:Avalonia;assembly=Avalonia.ReactiveUI"` as in the example below.
+:::note
+For latest versions from MyGet use `xmlns:rxui="http://reactiveui.net"`, for 0.8.0 release on NuGet use `xmlns:rxui="clr-namespace:Avalonia;assembly=Avalonia.ReactiveUI"` as in the example below.
+:::
 
 ```xml
 <Window xmlns="https://github.com/avaloniaui"
