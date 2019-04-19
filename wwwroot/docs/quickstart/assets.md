@@ -30,7 +30,15 @@ refer to them as "assets" throughout.
 
 # Referencing assets
 
-Assets can be referenced in XAML by specifying their rooted path:
+Assets can be referenced in XAML by specifying their relative path:
+
+```
+<Image Source="icon.png"/>
+<Image Source="images/icon.png"/>
+<Image Source="../icon.png"/>
+```
+
+Or their rooted path:
 
 ```
 <Image Source="/Assets/icon.png"/>
