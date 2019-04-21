@@ -107,7 +107,7 @@ Here we add a `Content` property which is initially set to our list view model. 
 method is called, we assign an `AddItemViewModel` to the `Content` property.
 
 The `Content` property setter calls `RaiseAndSetIfChanged` which will cause 
-[a change notification](/docs/binding/change-notification) to be fired each time the property
+[a change notification](/docs/binding/change-notifications) to be fired each time the property
 changes value. Avalonia's binding system needs change notifications in order to know when to update
 the user-interface in response to a property change.
 
