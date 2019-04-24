@@ -1,5 +1,5 @@
 Title: Avalonia for WPF Developers
-Order: 100
+Order: 1010
 ---
 
 Avalonia is in general very similar to WPF, but you will find differences. Here
