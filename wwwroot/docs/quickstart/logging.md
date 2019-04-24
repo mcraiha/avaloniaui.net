@@ -1,5 +1,5 @@
 Title: Logging Errors and Warnings
-Order: 50
+Order: 1000
 ---
 
 Avalonia uses [Serilog](https://github.com/serilog/serilog) for logging via
