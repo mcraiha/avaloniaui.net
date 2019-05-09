@@ -36,7 +36,7 @@ First install the Avalonia templates for .NET Core by following the instructions
 Now you can create the application from the template:
 
 ```powershell
-dotnet new avalonia.app.mvvm -o Todo -n Todo
+dotnet new avalonia.mvvm -o Todo -n Todo
 ```
 
   </div>
@@ -50,17 +50,21 @@ The newly created project will be pre-filled with a number of files and director
 
 ```
 Todo
+ |- App.xaml
+ |- App.xaml.cs
  |- Assets
  |   |- avalonia-logo.ico
  |- Models 
+ |- nuget.config 
+ |- Program.cs
+ |- Todo.csproj
+ |- ViewLocator.cs
  |- ViewModels
  |   |- MainWindowViewModel.cs
  |   |- ViewModelBase.cs
  |- Views
  |   |- MainWindow.xaml
- |- App.xaml
- |- Program.cs
- |- ViewLocator.cs
+ |   |- MainWindow.xaml.cs
 ```
 
 You can see there are directories for each of the concepts in the MVVM pattern (models, views and view models) as well as couple of other files and directories:
@@ -72,6 +76,8 @@ You can see there are directories for each of the concepts in the MVVM pattern (
 - The **App.xaml** file is where XAML styles and templates that will apply to the entire application will be placed.
 - The **Program.cs** file is the entry point for execution of the application. Here you can configure the platform options for Avalonia if necessary.
 - The **ViewLocator.cs** file is used to look up views for view models. This will be explained in more detail later.
+- The **nuget.config** file is where the application's NuGet dependencies are specified 
+- The **Todo.csproj** file is the C# Project file that specifies project settings, source paths, etc.
 
 <a class="btn btn-primary" role="button" href="creating-a-view">
     Next
