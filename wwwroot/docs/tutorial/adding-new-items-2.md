@@ -51,7 +51,7 @@ namespace Todo.ViewModels
 ```
 
 First we modify the `Description` property to raise
-[change notifications](/docs/binding/change-notification). We [saw this pattern
+[change notifications](/docs/binding/change-notifications). We [saw this pattern
 before](/docs/tutorial/adding-new-items#swap-out-the-list-view-model) in the main window view
 model. In this case though, we're implementing change notifications for `ReactiveUI` rather than
 for Avalonia specifically:
