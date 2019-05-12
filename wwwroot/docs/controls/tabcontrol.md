@@ -10,10 +10,7 @@ To create this, we'll describe the entire control (TabControl) and each indivual
 
 ```xaml
 <TabControl>
-  <TabItem>
-    <TabItem.Header>
-      <TextBlock VerticalAlignment="Center">Circle</TextBlock>
-    </TabItem.Header>
+  <TabItem Header="Circle" VerticalContentAlignment="Center">
     <TextBlock Text="I am in the circle page !" HorizontalAlignment="Left" VerticalAlignment="Center"/>
   </TabItem>
   <TabItem>
@@ -29,7 +26,10 @@ To create this, we'll describe the entire control (TabControl) and each indivual
     <TabItem.Header>
       <TextBlock VerticalAlignment="Center">Square</TextBlock>
     </TabItem.Header>
-    <TextBlock Text="I am in the square page !" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+    <StackPanel Orientation="Horizontal">
+      <TextBlock Text="Square : " HorizontalAlignment="Left" VerticalAlignment="Center"/>
+      <Rectangle Fill="Blue" Width="63" Height="41"/>              
+    </StackPanel>
   </TabItem>
 </TabControl>
 ```
