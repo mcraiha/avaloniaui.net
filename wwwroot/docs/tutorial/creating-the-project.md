@@ -76,8 +76,6 @@ You can see there are directories for each of the concepts in the MVVM pattern (
 - The **App.xaml** file is where XAML styles and templates that will apply to the entire application will be placed.
 - The **Program.cs** file is the entry point for execution of the application. Here you can configure the platform options for Avalonia if necessary.
 - The **ViewLocator.cs** file is used to look up views for view models. This will be explained in more detail later.
-- The **nuget.config** file is where the application's NuGet dependencies are specified 
-- The **Todo.csproj** file is the C# Project file that specifies project settings, source paths, etc.
 
 <a class="btn btn-primary" role="button" href="creating-a-view">
     Next
