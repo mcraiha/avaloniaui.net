@@ -34,7 +34,7 @@ We're going to create the `UserControl` from a template. Follow the instructions
     "Program.cs" and the "Views" directory):
 
 ```powershell
-dotnet new avalonia.usercontrol -o Views -n TodoListView
+dotnet new avalonia.usercontrol -o Views -n TodoListView  --namespace Todo.Views
 ```
   </div>
 </div>
@@ -87,11 +87,6 @@ namespace Todo.Views
 
 We're not going to touch the code-behind file for a little while, but notice that the class is
 called `TodoListView` and it's located in the `Todo.Views` namespace.
-
-**NOTE: If you created this from the dotnet command line tool the namespace in the auto-generated 
-file will not be `Todo.Views` but instead will be the default `AvaloniaAppTemplate.Namespace` 
-string.  This will be in both the `TodoListView.xaml` and `TodoListView.xaml.cs` files.  You need 
-to manually substitutethese stand-in values for the real values before compiling.**
 
 # Edit the UserControl
 
