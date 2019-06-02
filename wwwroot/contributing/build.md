@@ -14,7 +14,7 @@ git submodule update --init
 
 ###  Open in Visual Studio
 
-Open the `Avalonia.sln` solution in Visual Studio 2015 or newer. The free Visual Studio Community
+Open the `Avalonia.sln` solution in Visual Studio 2017 or newer. The free Visual Studio Community
 edition works fine. Run the `Samples\ControlCatalog.Desktop` project to see the sample application.
 
 # Linux/OSX
